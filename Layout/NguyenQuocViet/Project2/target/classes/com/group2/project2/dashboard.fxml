@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.StackedAreaChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group2.project2.DashboardController">
+   <children>
+      <GridPane maxHeight="720.0" maxWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="1030.0" minWidth="10.0" prefWidth="234.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="953.0" minWidth="10.0" prefWidth="720.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="303.0" minWidth="10.0" prefWidth="303.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Pane fx:id="pan_left" prefHeight="720.0" prefWidth="270.0" style="-fx-border-style: hidden solid hidden hidden; -fx-border-color: lightgray; -fx-border-width: 2;">
+               <children>
+                  <Label fx:id="lbl_header" layoutX="66.0" layoutY="21.0" text="STUDENT">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="img_header" fitHeight="39.0" fitWidth="42.0" layoutX="21.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@img/app.png" />
+                     </image>
+                  </ImageView>
+                  <GridPane layoutX="48.0" layoutY="129.0" prefHeight="360.0" prefWidth="164.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="btn_dashboard" mnemonicParsing="false" pickOnBounds="false" prefHeight="185.0" prefWidth="403.0" style="-fx-alignment: center-left; -fx-background-color: #f0f0f0;" text="Dashboard">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding></Button>
+                        <Button fx:id="btn_class" mnemonicParsing="false" onAction="#switchToSecondary" pickOnBounds="false" prefHeight="135.0" prefWidth="316.0" style="-fx-alignment: center-left; -fx-background-color: white;" text="Class" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding>
+                        </Button>
+                        <Button fx:id="btn_mark" mnemonicParsing="false" pickOnBounds="false" prefHeight="116.0" prefWidth="266.0" style="-fx-alignment: center-left; -fx-background-color: white;" text="Mark" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding>
+                        </Button>
+                        <Button fx:id="btn_news" mnemonicParsing="false" pickOnBounds="false" prefHeight="125.0" prefWidth="230.0" style="-fx-alignment: center-left; -fx-background-color: white;" text="News" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding>
+                        </Button>
+                        <Button fx:id="btn_form" mnemonicParsing="false" pickOnBounds="false" prefHeight="101.0" prefWidth="225.0" style="-fx-alignment: center-left; -fx-background-color: white;" text="Form" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding>
+                        </Button>
+                        <Button fx:id="btn_setting" mnemonicParsing="false" pickOnBounds="false" prefHeight="94.0" prefWidth="214.0" style="-fx-alignment: center-left; -fx-background-color: white;" text="Setting" GridPane.rowIndex="5">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding>
+                        </Button>
+                     </children>
+                  </GridPane>
+                  <ImageView fitHeight="35.0" fitWidth="100.0" layoutX="41.0" layoutY="671.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.5;">
+                     <image>
+                        <Image url="@img/aptech_logo.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="137.0" layoutY="680.0" style="-fx-opacity: 0.5;" text="Version 1.0" />
+               </children>
+            </Pane>
+            <GridPane GridPane.columnIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="354.0" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="622.0" minHeight="10.0" prefHeight="620.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Pane fx:id="pan_title" prefHeight="95.0" prefWidth="731.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: lightgray;">
+                     <children>
+                        <Label layoutX="14.0" layoutY="21.0" prefHeight="39.0" prefWidth="526.0" text="Hello &lt;std_name&gt;!" textFill="#0044ff">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="60.0" prefHeight="17.0" prefWidth="384.0" text="&lt;date_time&gt;" textFill="GREY">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="692.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/bell_icon.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="pan_content" prefHeight="631.0" prefWidth="731.0" GridPane.rowIndex="1">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" prefHeight="35.0" prefWidth="179.0" text="Class: &lt;class_name&gt;" textFill="GOLD">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER_RIGHT" layoutX="538.0" layoutY="14.0" prefHeight="35.0" prefWidth="179.0" text="Semester: &lt;No&gt;" textAlignment="RIGHT" textFill="GOLD">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Line endX="150.0" layoutX="115.0" layoutY="87.0" startX="-100.0" strokeWidth="2.0">
+                           <stroke>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="1.0" green="1.0" blue="1.0" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color green="1.0" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </stroke>
+                        </Line>
+                        <Label layoutX="337.0" layoutY="72.0" text="Today" textFill="LIME">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Line endX="150.0" layoutX="566.0" layoutY="87.0" startX="-100.0" strokeWidth="2.0">
+                           <stroke>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color green="1.0" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="1.0" green="1.0" blue="1.0" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </stroke>
+                        </Line>
+                        <Label layoutX="19.0" layoutY="106.0" prefHeight="39.0" prefWidth="116.0" text="Schedule:" textFill="#00ccff">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <padding>
+                              <Insets left="20.0" />
+                           </padding>
+                        </Label>
+                        <Label layoutX="135.0" layoutY="106.0" prefHeight="39.0" prefWidth="546.0" text="&lt;subject_name&gt; | &lt;begin_time&gt; - &lt;end_time&gt;" textFill="#00ccff">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Line endX="150.0" layoutX="115.0" layoutY="174.0" startX="-100.0" strokeWidth="2.0">
+                           <stroke>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="1.0" green="1.0" blue="1.0" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color green="1.0" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </stroke>
+                        </Line>
+                        <Label layoutX="304.0" layoutY="158.0" text="Achievement" textFill="LIME">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Line endX="150.0" layoutX="566.0" layoutY="174.0" startX="-100.0" strokeWidth="2.0">
+                           <stroke>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color green="1.0" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="1.0" green="1.0" blue="1.0" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </stroke>
+                        </Line>
+                        <StackedAreaChart layoutX="43.0" layoutY="192.0" prefHeight="404.0" prefWidth="645.0" title="Average Mark">
+                          <xAxis>
+                            <NumberAxis label="Subject" side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis autoRanging="false" label="Mark" minorTickCount="0" side="LEFT" upperBound="20.0" />
+                          </yAxis>
+                        </StackedAreaChart>
+                     </children>
+                  </Pane>
+               </children>
+            </GridPane>
+            <Pane fx:id="pan_right" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #f8f8f8;" GridPane.columnIndex="2">
+               <children>
+                  <Pane layoutX="70.0" layoutY="64.0" prefHeight="164.0" prefWidth="164.0">
+                     <children>
+                        <Arc fx:id="arc_avatar" fill="#ffffff00" layoutX="83.0" layoutY="82.0" length="270.0" radiusX="100.0" radiusY="100.0" scaleX="0.8" scaleY="0.8" scaleZ="0.8" startAngle="45.0" strokeType="INSIDE" strokeWidth="2.0" type="ROUND">
+                           <stroke>
+                              <LinearGradient endX="1.0" startY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color green="0.545098066329956" blue="0.545098066329956" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="1.0" green="1.0" blue="1.0" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </stroke></Arc>
+                        <Circle fx:id="cir_avatar" fill="RED" layoutX="82.0" layoutY="82.0" radius="73.0" stroke="BLACK" strokeType="INSIDE" />
+                     </children>
+                  </Pane>
+                  <DatePicker fx:id="dpk_date" editable="false" layoutX="52.0" layoutY="456.0" prefHeight="25.0" prefWidth="200.0" />
+                  <TableView layoutX="52.0" layoutY="493.0" prefHeight="200.0" prefWidth="200.0">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="C1" />
+                      <TableColumn prefWidth="75.0" text="C2" />
+                    </columns>
+                  </TableView>
+                  <Label alignment="CENTER" layoutX="38.0" layoutY="231.0" prefHeight="35.0" prefWidth="229.0" text="&lt;student_fullname&gt;" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="26.0" layoutY="26.0" prefHeight="25.0" prefWidth="55.0" style="-fx-background-color: #e0e0e0; -fx-background-radius: 6;" text="Edit" textFill="GREY">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <GridPane layoutX="13.0" layoutY="268.0" prefHeight="174.0" prefWidth="275.0" style="-fx-background-color: #f0f0f0; -fx-background-radius: 6;">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <GridPane>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="77.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="204.0" minWidth="10.0" prefWidth="178.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label prefHeight="66.0" prefWidth="109.0" text="Roll Number:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="122.0" prefWidth="396.0" text="&lt;std_rollno&gt;" GridPane.columnIndex="1" />
+                           </children>
+                        </GridPane>
+                        <GridPane GridPane.rowIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="79.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="201.0" minWidth="10.0" prefWidth="176.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label prefHeight="105.0" prefWidth="233.0" text="Date Of Birth:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="145.0" prefWidth="296.0" text="&lt;std_dob&gt;" GridPane.columnIndex="1" />
+                           </children>
+                        </GridPane>
+                        <GridPane GridPane.rowIndex="2">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="90.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="165.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label prefHeight="153.0" prefWidth="242.0" text="Phone Number:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="117.0" prefWidth="300.0" text="&lt;std_phone&gt;" GridPane.columnIndex="1" />
+                           </children>
+                        </GridPane>
+                        <GridPane GridPane.rowIndex="3">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="133.0" minWidth="10.0" prefWidth="36.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="246.0" minWidth="10.0" prefWidth="219.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <Label prefHeight="43.0" prefWidth="296.0" text="Email:">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="77.0" prefWidth="356.0" text="&lt;std_email&gt;" GridPane.columnIndex="1" />
+                           </children>
+                        </GridPane>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </GridPane>
+                  <Label alignment="CENTER" layoutX="212.0" layoutY="26.0" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #e0e0e0; -fx-background-radius: 6;" text="Sign out" textFill="GREY">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
+         </children>
+      </GridPane>
+   </children>
+</VBox>
