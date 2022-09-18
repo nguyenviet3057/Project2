@@ -7,6 +7,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Author     : Darkin
 */
 
-.pan_avatar {
-    -fx-background-image: url("img/avatar.jpg");
+.chart-plot-background {
+    -fx-background-color: #ffffff;
+}
+
+.series0.bar-legend-symbol {
+    -fx-background-color: gold;
+}
+.series1.bar-legend-symbol {
+    -fx-background-color: gold;
+    -fx-opacity: 0.5;
+}
+.series2.bar-legend-symbol {
+    -fx-background-color: red;
+}
+.series3.bar-legend-symbol {
+    -fx-background-color: red;
+    -fx-opacity: 0.5;
 }
