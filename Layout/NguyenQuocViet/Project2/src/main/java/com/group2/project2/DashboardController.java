@@ -81,8 +81,24 @@ public class DashboardController implements Initializable{
     private Label dt_current;
 
     @FXML
-    void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
+    void switchToClass() throws IOException {
+        App.setRoot("class");
+    }
+    @FXML
+    void switchToMark() throws IOException {
+        App.setRoot("mark");
+    }
+    @FXML
+    void switchToNews() throws IOException {
+        App.setRoot("news");
+    }
+    @FXML
+    void switchToForm() throws IOException {
+        App.setRoot("form");
+    }
+    @FXML
+    void switchToSetting() throws IOException {
+        App.setRoot("setting");
     }
 
     @FXML
@@ -128,7 +144,7 @@ public class DashboardController implements Initializable{
         double maxBarWidth=-50;
         double minCategoryGap=40;
         double catSpace = xAxis.getCategorySpacing();
-        chart_avgmark.setCategoryGap(160/mark_T.getData().size()*2);
+        chart_avgmark.setCategoryGap(160/mark_T.getData().size()*1.5);
         double avilableBarSpace = catSpace - (chart_avgmark.getCategoryGap() + chart_avgmark.getBarGap());
         double barWidth = (avilableBarSpace / chart_avgmark.getData().size()) - chart_avgmark.getBarGap();
         System.out.println(chart_avgmark.getData().size() + " " + chart_avgmark.getCategoryGap() + " " + avilableBarSpace + " " + barWidth); 
