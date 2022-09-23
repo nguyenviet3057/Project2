@@ -43,9 +43,6 @@ public class ClassController implements Initializable{
     private GridPane container;
 
     @FXML
-    private DatePicker dpk_date;
-
-    @FXML
     private Label dt_current;
 
     @FXML
@@ -86,15 +83,9 @@ public class ClassController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-//        System.out.println(container.getChildren().get(1));
-//        System.out.println(getClass().getResource("src/main/resources/com/group2/project2/right_pane.fxml"));
         try {
             Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("right_pane.fxml"));
             container.add(newLoadedPane,2,0);
-//            RightPaneController rightPane = RightPaneController.getInstance();
-//            container.add(rightPane,2,0);
-            Node node = container.lookup(".pane");
-            System.out.println("Node: " + container.getChildren().contains(btn_mark));
         } catch (IOException ex) {
             Logger.getLogger(ClassController.class.getName()).log(Level.SEVERE, null, ex);
         }

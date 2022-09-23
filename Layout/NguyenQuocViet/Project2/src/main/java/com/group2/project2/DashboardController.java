@@ -8,8 +8,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -21,6 +24,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
@@ -54,10 +58,7 @@ public class DashboardController implements Initializable{
     private BarChart<String, Number> chart_avgmark;
 
     @FXML
-    private Circle cir_avatar;
-
-    @FXML
-    private DatePicker dpk_date;
+    private GridPane container;
 
     @FXML
     private ImageView img_header;
@@ -106,10 +107,19 @@ public class DashboardController implements Initializable{
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        
+        //Initialize layout
+        try {
+            Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("right_pane.fxml"));
+            container.add(newLoadedPane,2,0);
+        } catch (IOException ex) {
+            Logger.getLogger(ClassController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         //Create thread for clock
         dt_current.setText(LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE) + " " + LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_TIME).substring(0,8));
         
-        dpk_date.setPromptText(LocalDate.now().toString());
+        
         
         XYChart.Series<String, Number> mark_T = new XYChart.Series<>(); 
         mark_T.setName("Theory"); 
@@ -164,13 +174,6 @@ public class DashboardController implements Initializable{
         
 //        Node m = chart_avgmark.lookup(".bar-chart");
 //        System.out.println(m.getCssMetaData());
-
-        //Add cir_avatar's background
-        String url = "images/avatar.jpg";
-        Image img = new Image(url);
-        ImagePattern imagePattern = new ImagePattern(img);
-//        System.out.println("Dashboard: "+ img.getException());
-        cir_avatar.setFill(imagePattern);
     }
 
 }
