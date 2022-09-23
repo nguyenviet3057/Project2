@@ -3,14 +3,19 @@ package com.group2.project2;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 
@@ -33,9 +38,9 @@ public class ClassController implements Initializable{
 
     @FXML
     private Button btn_setting;
-
+    
     @FXML
-    private Circle cir_avatar;
+    private GridPane container;
 
     @FXML
     private DatePicker dpk_date;
@@ -51,9 +56,6 @@ public class ClassController implements Initializable{
 
     @FXML
     private Pane pan_left;
-
-    @FXML
-    private Pane pan_right;
 
     @FXML
     private Pane pan_title;
@@ -84,6 +86,18 @@ public class ClassController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+//        System.out.println(container.getChildren().get(1));
+//        System.out.println(getClass().getResource("src/main/resources/com/group2/project2/right_pane.fxml"));
+        try {
+            Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("right_pane.fxml"));
+            container.add(newLoadedPane,2,0);
+//            RightPaneController rightPane = RightPaneController.getInstance();
+//            container.add(rightPane,2,0);
+            Node node = container.lookup(".pane");
+            System.out.println("Node: " + container.getChildren().contains(btn_mark));
+        } catch (IOException ex) {
+            Logger.getLogger(ClassController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

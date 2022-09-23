@@ -166,10 +166,10 @@ public class DashboardController implements Initializable{
 //        System.out.println(m.getCssMetaData());
 
         //Add cir_avatar's background
-        String url = "src/main/resources/com/group2/project2/img/avatar.jpg";
+        String url = "images/avatar.jpg";
         Image img = new Image(url);
         ImagePattern imagePattern = new ImagePattern(img);
-//        System.out.println(img.getException());
+//        System.out.println("Dashboard: "+ img.getException());
         cir_avatar.setFill(imagePattern);
     }
 
