@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 /**
  * JavaFX App
@@ -14,6 +16,8 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
+    
+    public static boolean alive = true;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -33,6 +37,7 @@ public class App extends Application {
 
     public static void main(String[] args) {
         launch();
+        alive = false;
     }
 
 }

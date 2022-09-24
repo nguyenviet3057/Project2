@@ -58,7 +58,7 @@ public class DashboardController implements Initializable{
         chart_avgmark.setCategoryGap(160/mark_T.getData().size()*1.5);
         double avilableBarSpace = catSpace - (chart_avgmark.getCategoryGap() + chart_avgmark.getBarGap());
         double barWidth = (avilableBarSpace / chart_avgmark.getData().size()) - chart_avgmark.getBarGap();
-        System.out.println(chart_avgmark.getData().size() + " " + chart_avgmark.getCategoryGap() + " " + avilableBarSpace + " " + barWidth); 
+//        System.out.println(chart_avgmark.getData().size() + " " + chart_avgmark.getCategoryGap() + " " + avilableBarSpace + " " + barWidth);
         
         Node chart_bg = chart_avgmark.lookup(".chart-legend");
         chart_bg.setStyle("-fx-background-color: transparent");

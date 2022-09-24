@@ -3,11 +3,13 @@ package com.group2.project2;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Iterator;
 import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -93,21 +95,15 @@ public class MainLayoutController implements Initializable{
     @FXML
     private GridPane pan_nav;
 
-    void resetBtbBackground() {
+    void resetBtnBackground() {
         Set<Node> nodes = pan_nav.lookupAll(".button");
         for (Iterator<Node> iterator = nodes.iterator(); iterator.hasNext();) {
             Node next = iterator.next();
             next.setStyle("-fx-alignment: center-left; -fx-background-color: white; -fx-cursor: hand");
         }
-//        btn_dashboard.setStyle("-fx-background-color: white");
-//        btn_class.setStyle("-fx-background-color: white");
-//        btn_mark.setStyle("-fx-background-color: white");
-//        btn_news.setStyle("-fx-background-color: white");
-//        btn_form.setStyle("-fx-background-color: white");
-//        btn_setting.setStyle("-fx-background-color: white");
     }
     void switchToLayout(int layout_number) {
-        resetBtbBackground();
+        resetBtnBackground();
         String layout_fxml;
         switch (layout_number) {
             case 2:
@@ -176,7 +172,22 @@ public class MainLayoutController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         //Modify Header
         lbl_hello.setText("Hello " + "ABC" + "!");
-        dt_current.setText(LocalDate.now().toString());
+//        dt_current.setText(LocalDate.now().toString() + " | " + LocalTime.now().toString().substring(0,8));
+        Thread dynamicClock = new Thread() {
+            public void run() {
+                while (App.alive) {
+                    Platform.runLater(() ->{
+                        dt_current.setText(LocalDate.now().toString() + " | " + LocalTime.now().toString().substring(0,8));
+                    });
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(MainLayoutController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        };
+        dynamicClock.start();
         
         lbl_std_rollno.setText("R001");
         lbl_std_dob.setText("01/01/2003");
@@ -189,7 +200,7 @@ public class MainLayoutController implements Initializable{
         //Add cir_avatar's background
         String url = "file:images/avatar.jpg";
         Image img = new Image(url);
-        System.out.println("Dashboard: "+ img.getException());
+//        System.out.println("Dashboard: "+ img.getException());
         ImagePattern imagePattern = new ImagePattern(img);
         cir_avatar.setFill(imagePattern);
         

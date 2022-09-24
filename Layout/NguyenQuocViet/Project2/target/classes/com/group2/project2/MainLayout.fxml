@@ -35,7 +35,7 @@
             </Label>
             <ImageView fx:id="img_header" fitHeight="39.0" fitWidth="42.0" layoutX="21.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@img/app.png" />
+                  <Image url="@app.png" />
                </image>
             </ImageView>
             <GridPane fx:id="pan_nav" layoutX="48.0" layoutY="129.0" prefHeight="360.0" prefWidth="164.0">
@@ -121,7 +121,7 @@
             </GridPane>
             <ImageView fitHeight="35.0" fitWidth="100.0" layoutX="41.0" layoutY="671.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.5;">
                <image>
-                  <Image url="@img/aptech_logo.png" />
+                  <Image url="@aptech_logo.png" />
                </image>
             </ImageView>
             <Label fx:id="lbl_version" layoutX="137.0" layoutY="680.0" style="-fx-opacity: 0.5;" text="Version 1.0" />
@@ -150,7 +150,7 @@
                   </Label>
                   <ImageView fitHeight="18.0" fitWidth="22.0" layoutX="695.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@img/bell_icon.png" />
+                        <Image url="@bell_icon.png" />
                      </image>
                   </ImageView>
                </children>
