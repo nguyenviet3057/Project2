@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="pan_content" prefHeight="620.0" prefWidth="731.0" style="-fx-background-color: white;" stylesheets="@dashboard.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group2.project2.DashboardController">
+          <children>
+              <BarChart fx:id="chart_avgmark" barGap="8.0" categoryGap="40.0" horizontalZeroLineVisible="false" layoutX="4.0" layoutY="226.0" legendSide="RIGHT" prefHeight="397.0" prefWidth="722.0" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                  <xAxis>
+                      <CategoryAxis cacheShape="false" centerShape="false" label="Subject" scaleShape="false" tickLabelFill="BLUE" tickLabelGap="2.0" tickLength="0.0" fx:id="xAxis">
+               <tickLabelFont>
+                  <Font size="11.0" />
+               </tickLabelFont>
+            </CategoryAxis>
+                  </xAxis>
+                  <yAxis>
+                      <NumberAxis autoRanging="false" label="Mark" side="LEFT" tickLabelFill="ORANGE" tickUnit="1.0" upperBound="20.0" />
+                  </yAxis>
+              </BarChart>
+              <Label fx:id="lbl_class" layoutX="14.0" layoutY="14.0" prefHeight="35.0" prefWidth="179.0" text="Class: &lt;class_name&gt;" textFill="GOLD">
+                  <font>
+                      <Font name="System Bold" size="18.0" />
+                  </font>
+              </Label>
+              <Label fx:id="lbl_semester" alignment="CENTER_RIGHT" layoutX="538.0" layoutY="14.0" prefHeight="35.0" prefWidth="179.0" text="Semester: &lt;No&gt;" textAlignment="RIGHT" textFill="GOLD">
+                  <font>
+                      <Font name="System Bold" size="18.0" />
+                  </font>
+              </Label>
+              <Line endX="150.0" layoutX="115.0" layoutY="87.0" startX="-100.0" strokeWidth="2.0">
+                  <stroke>
+                      <LinearGradient endX="1.0" endY="1.0">
+                          <stops>
+                              <Stop>
+                                  <color>
+                                      <Color red="1.0" green="1.0" blue="1.0" />
+                                  </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                  <color>
+                                      <Color green="1.0" />
+                                  </color>
+                              </Stop>
+                          </stops>
+                      </LinearGradient>
+                  </stroke>
+              </Line>
+              <Label layoutX="337.0" layoutY="72.0" text="Today" textFill="LIME">
+                  <font>
+                      <Font name="System Bold" size="20.0" />
+                  </font>
+              </Label>
+              <Line endX="150.0" layoutX="566.0" layoutY="87.0" startX="-100.0" strokeWidth="2.0">
+                  <stroke>
+                      <LinearGradient endX="1.0" endY="1.0">
+                          <stops>
+                              <Stop>
+                                  <color>
+                                      <Color green="1.0" />
+                                  </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                  <color>
+                                      <Color red="1.0" green="1.0" blue="1.0" />
+                                  </color>
+                              </Stop>
+                          </stops>
+                      </LinearGradient>
+                  </stroke>
+              </Line>
+              <Label layoutX="19.0" layoutY="106.0" prefHeight="39.0" prefWidth="116.0" text="Schedule:" textFill="#00ccff">
+                  <font>
+                      <Font name="System Bold" size="20.0" />
+                  </font>
+                  <padding>
+                      <Insets left="20.0" />
+                  </padding>
+              </Label>
+              <Label layoutX="135.0" layoutY="106.0" prefHeight="39.0" prefWidth="546.0" text="&lt;subject_name&gt; | &lt;begin_time&gt; - &lt;end_time&gt;" textFill="#00ccff">
+                  <font>
+                      <Font size="20.0" />
+                  </font>
+              </Label>
+              <Line endX="150.0" layoutX="115.0" layoutY="174.0" startX="-100.0" strokeWidth="2.0">
+                  <stroke>
+                      <LinearGradient endX="1.0" endY="1.0">
+                          <stops>
+                              <Stop>
+                                  <color>
+                                      <Color red="1.0" green="1.0" blue="1.0" />
+                                  </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                  <color>
+                                      <Color green="1.0" />
+                                  </color>
+                              </Stop>
+                          </stops>
+                      </LinearGradient>
+                  </stroke>
+              </Line>
+              <Label layoutX="304.0" layoutY="158.0" text="Achievement" textFill="LIME">
+                  <font>
+                      <Font name="System Bold" size="20.0" />
+                  </font>
+              </Label>
+              <Line endX="150.0" layoutX="566.0" layoutY="174.0" startX="-100.0" strokeWidth="2.0">
+                  <stroke>
+                      <LinearGradient endX="1.0" endY="1.0">
+                          <stops>
+                              <Stop>
+                                  <color>
+                                      <Color green="1.0" />
+                                  </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                  <color>
+                                      <Color red="1.0" green="1.0" blue="1.0" />
+                                  </color>
+                              </Stop>
+                          </stops>
+                      </LinearGradient>
+                  </stroke>
+              </Line>
+      <Label layoutX="289.0" layoutY="205.0" prefHeight="30.0" prefWidth="152.0" style="-fx-alignment: center;" text="Average Class Mark" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.843137264251709" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.31208053691275167">
+                     <color>
+                        <Color red="1.0" green="0.843137264251709" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Line endX="473.0" layoutX="164.0" layoutY="439.0" startX="-110.0" />
+          </children>
+      </Pane>
