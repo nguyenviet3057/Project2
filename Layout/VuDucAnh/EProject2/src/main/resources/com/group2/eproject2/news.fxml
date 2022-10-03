@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="731.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18">
+   <children>
+      <Pane fx:id="pan_title" layoutX="1.0" layoutY="1.0" prefHeight="95.0" prefWidth="731.0" style="-fx-border-style: hidden hidden solid hidden; -fx-border-color: lightgray;">
+         <children>
+            <Label layoutX="14.0" layoutY="21.0" prefHeight="39.0" prefWidth="526.0" text="Hello &lt;std_name&gt;!" textFill="#0044ff">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="dt_current" layoutX="14.0" layoutY="60.0" prefHeight="17.0" prefWidth="384.0" text="&lt;date_time&gt;" textFill="GREY">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="18.0" fitWidth="22.0" layoutX="695.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../NguyenQuocViet/Project2/src/main/resources/com/group2/project2/img/bell_icon.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="pan_content" layoutY="97.0" prefHeight="623.0" prefWidth="731.0" style="-fx-background-color: #f5f5f5;">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="35.0" prefWidth="179.0" text="Class: &lt;class_name&gt;" textFill="GOLD">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="538.0" layoutY="14.0" prefHeight="35.0" prefWidth="179.0" text="Semester: &lt;No&gt;" textAlignment="RIGHT" textFill="GOLD">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Line endX="150.0" layoutX="115.0" layoutY="87.0" startX="-100.0" strokeWidth="2.0">
+               <stroke>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color green="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </stroke>
+            </Line>
+            <Pane layoutX="37.0" layoutY="149.0" prefHeight="89.0" prefWidth="658.0" style="-fx-background-color: white; -fx-background-radius: 8px;">
+               <children>
+                  <Pane layoutX="61.0" layoutY="17.0" prefHeight="50.0" prefWidth="581.0">
+                     <children>
+                        <Text layoutX="7.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title: Lorem Ipsum is simply dummy text of the printing and typesetting industry." wrappingWidth="546.2000427246093">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="8.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="date: &lt;date&gt;" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="10.0" layoutY="17.0" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 50px; -fx-background-color: orange;" />
+               </children>
+            </Pane>
+            <Label layoutX="337.0" layoutY="72.0" text="News" textFill="LIME">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Line endX="150.0" layoutX="566.0" layoutY="87.0" startX="-100.0" strokeWidth="2.0">
+               <stroke>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color green="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </stroke>
+            </Line>
+            <Pane layoutX="37.0" layoutY="263.0" prefHeight="89.0" prefWidth="658.0" style="-fx-background-color: white; -fx-background-radius: 8px;">
+               <children>
+                  <Pane layoutX="61.0" layoutY="17.0" prefHeight="50.0" prefWidth="581.0">
+                     <children>
+                        <Text layoutX="7.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title: Lorem Ipsum is simply dummy text of the printing and typesetting industry." wrappingWidth="546.2000427246093">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="8.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="date: &lt;date&gt;" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="10.0" layoutY="17.0" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 50px; -fx-background-color: orange;" />
+               </children>
+            </Pane>
+            <Pane layoutX="36.0" layoutY="375.0" prefHeight="89.0" prefWidth="658.0" style="-fx-background-color: white; -fx-background-radius: 8px;">
+               <children>
+                  <Pane layoutX="61.0" layoutY="17.0" prefHeight="50.0" prefWidth="581.0">
+                     <children>
+                        <Text layoutX="7.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title: Lorem Ipsum is simply dummy text of the printing and typesetting industry." wrappingWidth="546.2000427246093">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="8.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="date: &lt;date&gt;" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="10.0" layoutY="17.0" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 50px; -fx-background-color: orange;" />
+               </children>
+            </Pane>
+            <Pane layoutX="36.0" layoutY="489.0" prefHeight="89.0" prefWidth="658.0" style="-fx-background-color: white; -fx-background-radius: 8px;">
+               <children>
+                  <Pane layoutX="61.0" layoutY="17.0" prefHeight="50.0" prefWidth="581.0">
+                     <children>
+                        <Text layoutX="7.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title: Lorem Ipsum is simply dummy text of the printing and typesetting industry." wrappingWidth="546.2000427246093">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="8.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="date: &lt;date&gt;" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="10.0" layoutY="17.0" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 50px; -fx-background-color: orange;" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
