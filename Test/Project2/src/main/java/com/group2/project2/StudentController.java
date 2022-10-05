@@ -47,6 +47,7 @@ public class StudentController {
     private static List<students> stdList = null;
     public static List<students> stdListInstance() {
         if (stdList == null) stdList = studentsEntity.findByClassId(std.getClass_id());
+//        System.out.println(stdList.toString());
         return stdList;
     }
 }

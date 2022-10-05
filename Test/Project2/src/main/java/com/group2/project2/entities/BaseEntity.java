@@ -25,9 +25,9 @@ public class BaseEntity {
     protected static void open(){
         //Mo ket noi toi database
         try{
-            System.out.println("Try connecting to DB");
+//            System.out.println("Try connecting to DB");
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + DATABASE, USERNAME, PWD);
-            System.out.println("Connected to DB");
+//            System.out.println("Connected to DB");
         } catch (SQLException ex){
             
         }

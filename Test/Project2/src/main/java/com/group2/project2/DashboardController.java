@@ -86,7 +86,7 @@ public class DashboardController implements Initializable{
 //        Node m = chart_avgmark.lookup(".bar-chart");
 //        System.out.println(m.getCssMetaData());
 
-        System.out.println(StudentController.stdInstance().toString());
+//        System.out.println(StudentController.stdInstance().toString());
     }
 
 }

@@ -41,4 +41,7 @@ public class App extends Application {
         alive = false;
     }
 
+    public static Scene getScene() {
+        return scene;
+    }
 }

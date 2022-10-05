@@ -26,6 +26,8 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
 public class MainLayoutController implements Initializable{
+    
+    public static boolean theme = false;
 
     @FXML
     private Button btn_class;
@@ -49,7 +51,7 @@ public class MainLayoutController implements Initializable{
     private Circle cir_avatar;
 
     @FXML
-    private GridPane container;
+    public static GridPane container;
 
     @FXML
     private DatePicker dpk_date;
@@ -172,6 +174,10 @@ public class MainLayoutController implements Initializable{
         switchToLayout(6);
     }
 
+    public static GridPane getContainer() {
+        return container;
+    }
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         students std = StudentController.stdInstance();
@@ -216,6 +222,11 @@ public class MainLayoutController implements Initializable{
         } catch (IOException ex) {
             Logger.getLogger(MainLayoutController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
 
+        //Set dark theme
+//        if (this.theme) {
+//            System.out.println("Changed Theme");
+//            container.setStyle("-fx-base: white;");
+//        }
+    }
 }

@@ -16,7 +16,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane fx:id="container" maxHeight="720.0" maxWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group2.project2.MainLayoutController">
+<GridPane fx:id="container" maxHeight="720.0" maxWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" stylesheets="@MainLayout.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group2.project2.MainLayoutController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="1030.0" minWidth="10.0" prefWidth="234.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="953.0" minWidth="10.0" prefWidth="720.0" />

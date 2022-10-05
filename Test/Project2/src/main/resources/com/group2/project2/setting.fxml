@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group2.project2.SettingController">
+   <children>
+      <Pane fx:id="pan_content" prefHeight="620.0" prefWidth="731.0">
+         <children>
+            <Line endX="150.0" layoutX="115.0" layoutY="50.0" startX="-100.0" strokeWidth="2.0">
+               <stroke>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </stroke>
+            </Line>
+            <Label layoutX="335.0" layoutY="35.0" text="Settings" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Line endX="150.0" layoutX="566.0" layoutY="50.0" startX="-100.0" strokeWidth="2.0">
+               <stroke>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </stroke>
+            </Line>
+            <Label layoutX="57.0" layoutY="132.0" text="Night mode" />
+            <ToggleButton layoutX="140.0" layoutY="128.0" mnemonicParsing="false" onMouseClicked="#switchTheme" prefHeight="25.0" prefWidth="40.0" text="On">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding></ToggleButton>
+            <Label layoutX="57.0" layoutY="177.0" text="Notification" />
+            <ToggleButton layoutX="140.0" layoutY="174.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="40.0" text="On">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </ToggleButton>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

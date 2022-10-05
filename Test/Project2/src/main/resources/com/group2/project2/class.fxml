@@ -9,12 +9,12 @@
 
 <Pane prefHeight="620.0" prefWidth="731.0" style="-fx-background-color: white;" stylesheets="@mark.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group2.project2.ClassController">
    <children>
-      <Label alignment="CENTER_RIGHT" layoutX="538.0" layoutY="14.0" prefHeight="35.0" prefWidth="179.0" text="Semester: &lt;No&gt;" textAlignment="RIGHT" textFill="GOLD">
+      <Label fx:id="lbl_semester" alignment="CENTER_RIGHT" layoutX="538.0" layoutY="14.0" prefHeight="35.0" prefWidth="179.0" text="Semester: &lt;No&gt;" textAlignment="RIGHT" textFill="GOLD">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="14.0" layoutY="14.0" prefHeight="35.0" prefWidth="179.0" text="Class: &lt;class_name&gt;" textFill="GOLD">
+      <Label fx:id="lbl_class" layoutX="14.0" layoutY="14.0" prefHeight="35.0" prefWidth="179.0" text="Class: &lt;class_name&gt;" textFill="GOLD">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -37,10 +37,10 @@
       <TableView fx:id="tbv_classList" layoutX="46.0" layoutY="159.0" prefHeight="439.0" prefWidth="625.0">
         <columns>
           <TableColumn fx:id="col_no" editable="false" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" resizable="false" text="No" />
-          <TableColumn fx:id="col_name" editable="false" maxWidth="283.0" minWidth="240.0" prefWidth="278.0" resizable="false" text="Student" />
-            <TableColumn fx:id="col_rollno" editable="false" maxWidth="178.0" minWidth="84.0" prefWidth="127.0" resizable="false" text="Roll Number" />
-            <TableColumn fx:id="col_phone" editable="false" maxWidth="204.0" minWidth="110.0" prefWidth="123.0" resizable="false" text="Phone" />
-            <TableColumn fx:id="col_gender" prefWidth="66.0" text="Gender" />
+          <TableColumn fx:id="col_name" editable="false" maxWidth="283.0" minWidth="206.0" prefWidth="206.0" resizable="false" text="Student" />
+            <TableColumn fx:id="col_rollno" editable="false" maxWidth="199.0" minWidth="75.0" prefWidth="81.0" resizable="false" text="Roll Number" />
+            <TableColumn fx:id="col_phone" editable="false" maxWidth="234.0" minWidth="84.0" prefWidth="89.0" resizable="false" text="Phone" />
+            <TableColumn fx:id="col_email" prefWidth="218.0" text="Email" />
         </columns>
       </TableView>
    </children>

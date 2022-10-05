@@ -1,54 +1,68 @@
 package com.group2.project2;
 
+import com.group2.project2.model.StudentList;
 import com.group2.project2.model.students;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class ClassController implements Initializable{
+    
+    @FXML
+    private Label lbl_class;
 
     @FXML
-    private TableColumn<?, ?> col_name;
+    private Label lbl_semester;
+    
+    @FXML
+    private TableColumn<students, Number> col_no;
+    
+    @FXML
+    private TableColumn<students, String> col_name;
 
     @FXML
-    private TableColumn<?, ?> col_no;
+    private TableColumn<students, String> col_email;
 
     @FXML
-    private TableColumn<?, ?> col_gender;
+    private TableColumn<students, String> col_phone;
 
     @FXML
-    private TableColumn<?, ?> col_phone;
-
-    @FXML
-    private TableColumn<?, ?> col_rollno;
+    private TableColumn<students, String> col_rollno;
     
     @FXML
     private TableView<students> tbv_classList;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ObservableList<students> data = FXCollections.observableList(StudentController.stdListInstance());
-        col_no.setCellFactory(new PropertyValueFactory("rollno"));
-        col_name.setCellFactory(new PropertyValueFactory("fullname"));
-        col_rollno.setCellFactory(new PropertyValueFactory("rollno"));
-        col_phone.setCellFactory(new PropertyValueFactory("phone"));
-        col_gender.setCellFactory(new PropertyValueFactory("gender"));
+        //Initialize layout
+        lbl_class.setText("Class: " + StudentController.classInstance().getName());
+        lbl_semester.setText("Semester: " + StudentController.semInstance().getSemester_id()%10);
+//        List<StudentList> stdTable = new ArrayList<>();
+//        for (students student : StudentController.stdListInstance()) {
+//            stdTable.add(new StudentList(student.getRollno(), student.getFullname(), student.getBirthday(), student.getPhonenumber(), student.getAddress(), student.getEmail(), student.getPassword(), student.getPicture(), student.getStatus_id(), student.getSemester_id(), student.getClass_id()));
+//        }
+
+        ObservableList<students> data = FXCollections.observableArrayList(StudentList.stdTableInstance());
+//        System.out.println(data.toString());
+        col_no.setCellValueFactory(new PropertyValueFactory<>("no"));
+        col_name.setCellValueFactory(new PropertyValueFactory<>("fullname"));
+        col_rollno.setCellValueFactory(new PropertyValueFactory<>("rollno"));
+        col_phone.setCellValueFactory(new PropertyValueFactory<>("phonenumber"));
+        col_email.setCellValueFactory(new PropertyValueFactory<>("Email"));
         
         tbv_classList.setItems(data);
-//        int stdCount = 0;
-//        for (Object student : StudentController.stdListInstance()) {
-//            stdCount++;
-//            tbv_classList.setItems(data);
-//            
-//        }
         
     }
-
 }
+
+

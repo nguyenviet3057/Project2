@@ -170,7 +170,7 @@ public class studentsEntity extends BaseEntity{
         
         open();
         
-        String sql = "select * from students where class_id = ";
+        String sql = "select * from students where class_id = ? ";
         try {
             statement = conn.prepareStatement(sql);
             statement.setInt(1, id);
