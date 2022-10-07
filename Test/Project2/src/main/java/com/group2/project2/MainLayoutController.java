@@ -51,7 +51,7 @@ public class MainLayoutController implements Initializable{
     private Circle cir_avatar;
 
     @FXML
-    public static GridPane container;
+    private GridPane container;
 
     @FXML
     private DatePicker dpk_date;
@@ -132,6 +132,9 @@ public class MainLayoutController implements Initializable{
                 layout_fxml = "setting.fxml";
                 btn_setting.setStyle("-fx-alignment: center-left; -fx-background-color: #f0f0f0; -fx-cursor: hand");
                 break;
+            case 7:
+                layout_fxml = "editStudent.fxml";
+                break;
             default:
                 layout_fxml = "dashboard.fxml";
                 btn_dashboard.setStyle("-fx-alignment: center-left; -fx-background-color: #f0f0f0; -fx-cursor: hand");
@@ -173,9 +176,9 @@ public class MainLayoutController implements Initializable{
     void switchToSetting() throws IOException {
         switchToLayout(6);
     }
-
-    public static GridPane getContainer() {
-        return container;
+    @FXML
+    void switchToEditStudent() throws IOException {
+        switchToLayout(7);
     }
     
     @Override
@@ -222,11 +225,5 @@ public class MainLayoutController implements Initializable{
         } catch (IOException ex) {
             Logger.getLogger(MainLayoutController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-        //Set dark theme
-//        if (this.theme) {
-//            System.out.println("Changed Theme");
-//            container.setStyle("-fx-base: white;");
-//        }
     }
 }

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="620.0" prefWidth="731.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group2.project2.EditStudentController">
+   <children>
+      <Line endX="150.0" layoutX="125.0" layoutY="50.0" startX="-100.0" strokeWidth="2.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
+      <Label layoutX="313.0" layoutY="36.0" text="Edit profile" textFill="BLUE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Line endX="150.0" layoutX="576.0" layoutY="50.0" startX="-100.0" strokeWidth="2.0">
+         <stroke>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </stroke>
+      </Line>
+      <Pane layoutX="76.0" layoutY="93.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-radius: 50px; -fx-background-color: orange;" />
+      <Button layoutX="194.0" layoutY="121.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="120.0" style="-fx-background-color: white; -fx-background-radius: 8px;" text="Change">
+         <padding>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Button>
+      <Pane layoutX="76.0" layoutY="211.0" prefHeight="328.0" prefWidth="580.0">
+         <children>
+            <Label alignment="CENTER_RIGHT" layoutX="72.0" layoutY="55.0" prefHeight="37.0" prefWidth="69.0" text="Gender" />
+            <Label alignment="CENTER_RIGHT" layoutX="72.0" layoutY="92.0" prefHeight="37.0" prefWidth="69.0" text="DOB" />
+            <Label alignment="CENTER_RIGHT" layoutX="72.0" layoutY="129.0" prefHeight="37.0" prefWidth="69.0" text="Email" />
+            <Label alignment="CENTER_RIGHT" layoutX="72.0" layoutY="167.0" prefHeight="37.0" prefWidth="69.0" text="Address" />
+            <Label alignment="CENTER_RIGHT" layoutX="72.0" layoutY="204.0" prefHeight="37.0" prefWidth="69.0" text="Password" />
+            <Label alignment="CENTER_RIGHT" layoutX="72.0" layoutY="18.0" prefHeight="37.0" prefWidth="69.0" text="Full Name" textAlignment="RIGHT" />
+            <Button fx:id="btn_save" layoutX="262.0" layoutY="268.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="57.0" text="Save">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btn_reset" layoutX="159.0" layoutY="269.0" mnemonicParsing="false" onMouseClicked="#reset" prefHeight="27.0" prefWidth="57.0" text="Reset">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Button>
+            <Button fx:id="btn_back" layoutX="362.0" layoutY="268.0" mnemonicParsing="false" onMouseClicked="#returnToDashboard" prefHeight="27.0" prefWidth="57.0" text="Back">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Button>
+            <TextField fx:id="tf_fullname" layoutX="170.0" layoutY="24.0" prefHeight="25.0" prefWidth="315.0" text="Vũ Đức Anh" />
+            <TextField fx:id="tf_gender" disable="true" editable="false" layoutX="170.0" layoutY="61.0" prefHeight="25.0" prefWidth="315.0" text="Nam" />
+            <TextField fx:id="tf_dob" disable="true" layoutX="170.0" layoutY="98.0" prefHeight="25.0" prefWidth="315.0" text="10/03/2003" />
+            <TextField fx:id="tf_email" disable="true" layoutX="170.0" layoutY="135.0" prefHeight="25.0" prefWidth="315.0" text="vuducanh0125@gmail.com" />
+            <TextField fx:id="tf_address" layoutX="170.0" layoutY="173.0" prefHeight="25.0" prefWidth="315.0" text="Ha Noi" />
+            <TextField fx:id="tf_pwd" layoutX="170.0" layoutY="210.0" prefHeight="25.0" prefWidth="252.0" text="**********" />
+            <Button layoutX="428.0" layoutY="209.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="57.0" text="Change">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

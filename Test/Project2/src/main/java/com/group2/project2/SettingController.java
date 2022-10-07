@@ -15,7 +15,7 @@ public class SettingController {
         MainLayoutController.theme = !MainLayoutController.theme;
         if (MainLayoutController.theme) {
             System.out.println("Changed Theme");
-            MainLayoutController.getContainer().setStyle("-fx-base: white;");
+//            System.out.println(MainLayoutController.container);
         }
     }
 
