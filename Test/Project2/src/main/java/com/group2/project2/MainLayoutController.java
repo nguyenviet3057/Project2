@@ -205,7 +205,7 @@ public class MainLayoutController implements Initializable{
         
         lbl_fullname.setText(std.getFullname());
         lbl_std_rollno.setText(std.getRollno());
-        lbl_std_dob.setText(std.getBirthday());
+        lbl_std_dob.setText(std.getBirthday().toString());
         lbl_std_phone.setText(std.getPhonenumber());
         lbl_std_email.setText(std.getEmail());
         

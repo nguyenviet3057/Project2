@@ -25,7 +25,7 @@ public class subjectsEntity extends BaseEntity{
         open();
  
         try{
-            String sql = "insert into subjects (id, name, sessions, staff_id) values (?, ?, ?, ?)";
+            String sql = "insert into subject (id, name, session, staff_id) values (?, ?, ?, ?)";
             statement = conn.prepareStatement(sql);
             statement.setInt(1, subj.getId());
             statement.setString(2, subj.getName());
@@ -42,7 +42,7 @@ public class subjectsEntity extends BaseEntity{
         open();
         
         try {
-            String sql = "update subjects set name = ?, sessions = ?, "
+            String sql = "update subject set name = ?, session = ?, "
                     + "staff_id = ? where rollno = ?";
             
             statement = conn.prepareStatement(sql);
@@ -60,7 +60,7 @@ public class subjectsEntity extends BaseEntity{
     public static void delete(int id) {
         open();
         
-        String sql = "delete * from subjects where id = ?";
+        String sql = "delete * from subject where id = ?";
         try {
             statement = conn.prepareStatement(sql);
             statement.setInt(1, id);
@@ -79,7 +79,7 @@ public class subjectsEntity extends BaseEntity{
         
         open();
         
-        String sql = "select * from subjects where id = ?";
+        String sql = "select * from subject where id = ?";
         try {
             statement = conn.prepareStatement(sql);
             statement.setInt(1, id);
@@ -89,8 +89,8 @@ public class subjectsEntity extends BaseEntity{
             while(resultSet.next()) {
                 subj = new subjects(
                         resultSet.getInt("id"), 
-                        resultSet.getString("fullname"), 
-                        resultSet.getInt("sessions"), 
+                        resultSet.getString("name"), 
+                        resultSet.getInt("session"), 
                         resultSet.getInt("staff_id")); 
                 break;
             }
@@ -110,7 +110,7 @@ public class subjectsEntity extends BaseEntity{
         
         open();
         
-        String sql = "select * from subjects where name like ?";
+        String sql = "select * from subject where name like ?";
         try {
             statement = conn.prepareStatement(sql);
             statement.setString(1, "%"+s+"%");
@@ -121,7 +121,7 @@ public class subjectsEntity extends BaseEntity{
                 subjects subj = new subjects(
                         resultSet.getInt("id"), 
                         resultSet.getString("name"), 
-                        resultSet.getInt("sessions"), 
+                        resultSet.getInt("session"), 
                         resultSet.getInt("staff_id"));
                 dataList.add(subj);
             }
@@ -140,7 +140,7 @@ public class subjectsEntity extends BaseEntity{
         
         open();
         
-        String sql = "select * from subjects";
+        String sql = "select * from subject";
         try {
             statement = conn.prepareStatement(sql);
             
@@ -150,7 +150,7 @@ public class subjectsEntity extends BaseEntity{
                 subjects subj = new subjects(
                         resultSet.getInt("id"), 
                         resultSet.getString("name"), 
-                        resultSet.getInt("sessions"),
+                        resultSet.getInt("session"),
                         resultSet.getInt("staff_id"));
                 dataList.add(subj);
             }

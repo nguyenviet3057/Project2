@@ -9,6 +9,7 @@ import static com.group2.project2.entities.BaseEntity.close;
 import static com.group2.project2.entities.BaseEntity.conn;
 import static com.group2.project2.entities.BaseEntity.open;
 import static com.group2.project2.entities.BaseEntity.statement;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -21,17 +22,17 @@ import java.util.logging.Logger;
  * @author ADMIN
  */
 public class semesterEntity {
-            public static void insert(semester sem){
+    public static void insert(semester sem){
         open();
  
         try{
-            String sql = "insert into semester(id, semester_id, subject_no, "
+            String sql = "insert into semester(id, semester_no, subject_id, "
                     + "start_year, values (?, ?, ?, ?)";
             statement = conn.prepareStatement(sql);
             statement.setInt(1, sem.getId());
             statement.setInt(2, sem.getSemester_id());
             statement.setInt(3, sem.getSubject_no());
-            statement.setString(4, sem.getStart_year());
+            statement.setDate(4, sem.getStart_year());
            
             statement.execute();
         
@@ -44,14 +45,14 @@ public class semesterEntity {
         open();
         
         try {
-            String sql = "update semester set semester_id = ?, subject_no = ?, "
+            String sql = "update semester set semester_no = ?, subject_id = ?, "
                     + "start_year = ? where id = ?";
             
             statement = conn.prepareStatement(sql);
             statement.setInt(1, sem.getId());
             statement.setInt(2, sem.getSemester_id());
             statement.setInt(3, sem.getSubject_no());
-            statement.setString(4, sem.getStart_year());
+            statement.setDate(4, sem.getStart_year());
             statement.execute();
         } catch(SQLException e) {}
         
@@ -75,7 +76,7 @@ public class semesterEntity {
         close();
     }
 
-        public static semester findById(int id) {
+    public static semester findById(int id) {
         semester sem = null;
         
         open();
@@ -92,7 +93,7 @@ public class semesterEntity {
                         resultSet.getInt("id"), 
                         resultSet.getInt("semester_no"), 
                         resultSet.getInt("subject_id"), 
-                        resultSet.getString("start_year")); 
+                        resultSet.getDate("start_year")); 
                 break;
             }
         } catch (SQLException ex) {
@@ -106,7 +107,7 @@ public class semesterEntity {
         return sem;
     }
         
-    public static List<semester> findByStartYear(String s) {
+    public static List<semester> findByStartYear(Date start_year) {
         List<semester> dataList = new ArrayList<>();
         
         open();
@@ -114,16 +115,16 @@ public class semesterEntity {
         String sql = "select * from semester where start_year like ?";
         try {
             statement = conn.prepareStatement(sql);
-            statement.setString(1, "%"+s+"%");
+            statement.setDate(1, start_year);
             
             ResultSet resultSet = statement.executeQuery();
             
             while(resultSet.next()) {
                 semester sem = new semester(
                         resultSet.getInt("id"), 
-                        resultSet.getInt("semester_id"), 
-                        resultSet.getInt("subject_no"), 
-                        resultSet.getString("start_year"));
+                        resultSet.getInt("semester_no"), 
+                        resultSet.getInt("subject_id"), 
+                        resultSet.getDate("start_year"));
                 dataList.add(sem);
             }
         } catch (SQLException ex) {
@@ -131,6 +132,36 @@ public class semesterEntity {
                     null, ex);
         }
         
+        
+        close();
+        
+        return dataList;
+    }
+    
+    public static List<semester> findBySemesterNo(int semester_no) {
+        List<semester> dataList = new ArrayList<>();
+        
+        open();
+        
+        String sql = "select * from semester where semester_no = ?";
+        try {
+            statement = conn.prepareStatement(sql);
+            statement.setInt(1, semester_no);
+            
+            ResultSet resultSet = statement.executeQuery();
+            
+            while(resultSet.next()) {
+                semester sem = new semester(
+                        resultSet.getInt("id"), 
+                        resultSet.getInt("semester_no"), 
+                        resultSet.getInt("subject_id"), 
+                        resultSet.getDate("start_year"));
+                dataList.add(sem);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(semesterEntity.class.getName()).log(Level.SEVERE, 
+                    null, ex);
+        }
         
         close();
         
@@ -151,9 +182,9 @@ public class semesterEntity {
             while(resultSet.next()) {
                 semester sem = new semester(
                         resultSet.getInt("id"), 
-                        resultSet.getInt("semester_id"), 
-                        resultSet.getInt("subject_no"), 
-                        resultSet.getString("start_year"));
+                        resultSet.getInt("semester_no"), 
+                        resultSet.getInt("subject_id"), 
+                        resultSet.getDate("start_year"));
                 dataList.add(sem);
             }
         } catch (SQLException ex) {

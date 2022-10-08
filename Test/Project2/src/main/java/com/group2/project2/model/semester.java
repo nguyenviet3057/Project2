@@ -4,6 +4,7 @@
  */
 package com.group2.project2.model;
 
+import java.sql.Date;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -14,17 +15,17 @@ public class semester {
     private int id;
     private int semester_id;
     private int subject_no;
-    private String start_year;
+    private Date start_year;
 
     public semester(int id) {
         this.id = id;
     }
 
-    public semester(String start_year) {
+    public semester(Date start_year) {
         this.start_year = start_year;
     }
 
-    public semester(int id, int semester_id, int subject_no, String start_year) {
+    public semester(int id, int semester_id, int subject_no, Date start_year) {
         this.id = id;
         this.semester_id = semester_id;
         this.subject_no = subject_no;
@@ -55,11 +56,11 @@ public class semester {
         this.subject_no = subject_no;
     }
 
-    public String getStart_year() {
+    public Date getStart_year() {
         return start_year;
     }
 
-    public void setStart_year(String start_year) {
+    public void setStart_year(Date start_year) {
         this.start_year = start_year;
     }
     

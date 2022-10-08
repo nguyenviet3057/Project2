@@ -25,8 +25,8 @@ public class staffEntity extends BaseEntity{
         open();
  
         try{
-            String sql = "insert into staff(id, fullname, birthday, "
-                    + "phonenumber, address, email, password, picture, "
+            String sql = "insert into staff(id, fullname, birth, "
+                    + "phone, address, email, password, pic, "
                     + "salary, permission_id) " + "values "
                     + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             statement = conn.prepareStatement(sql);
@@ -52,9 +52,9 @@ public class staffEntity extends BaseEntity{
         open();
         
         try {
-            String sql = "update staff set fullname = ?, birthday = ?, "
-                    + "phonenumber = ?, address = ?, Email = ?, password = ?, "
-                    + "picture = ?,salary = ?, permission_id = ? where id = ?";
+            String sql = "update staff set fullname = ?, birth = ?, "
+                    + "phone = ?, address = ?, email = ?, password = ?, "
+                    + "pic = ?,salary = ?, permission_id = ? where id = ?";
             
             statement = conn.prepareStatement(sql);
             statement.setInt(1, sta.getId());
@@ -96,7 +96,7 @@ public class staffEntity extends BaseEntity{
         
         open();
         
-        String sql = "select * from staff where rollno = ?";
+        String sql = "select * from staff where id = ?";
         try {
             statement = conn.prepareStatement(sql);
             statement.setInt(1, id);
@@ -107,12 +107,12 @@ public class staffEntity extends BaseEntity{
                 sta = new staff(
                         resultSet.getInt("id"), 
                         resultSet.getString("fullname"), 
-                        resultSet.getString("birthday"), 
-                        resultSet.getString("phonenumber"), 
+                        resultSet.getString("birth"), 
+                        resultSet.getString("phone"), 
                         resultSet.getString("address"),
-                        resultSet.getString("Email"),
+                        resultSet.getString("email"),
                         resultSet.getString("password"),
-                        resultSet.getString("picture"),
+                        resultSet.getString("pic"),
                         resultSet.getFloat("salary"),
                         resultSet.getInt("permission_id"));
                 break;
@@ -144,12 +144,12 @@ public class staffEntity extends BaseEntity{
                 staff sta = new staff(
                         resultSet.getInt("id"), 
                         resultSet.getString("fullname"), 
-                        resultSet.getString("birthday"), 
-                        resultSet.getString("phonenumber"), 
+                        resultSet.getString("birth"), 
+                        resultSet.getString("phone"), 
                         resultSet.getString("address"),
-                        resultSet.getString("Email"),
+                        resultSet.getString("email"),
                         resultSet.getString("password"),
-                        resultSet.getString("picture"),
+                        resultSet.getString("pic"),
                         resultSet.getFloat("salary"),
                         resultSet.getInt("permission_id"));
                 dataList.add(sta);
@@ -180,14 +180,14 @@ public class staffEntity extends BaseEntity{
                 staff sta = new staff(
                         resultSet.getInt("id"), 
                         resultSet.getString("fullname"), 
-                        resultSet.getString("birthday"), 
-                        resultSet.getString("phonenumber"), 
+                        resultSet.getString("birth"), 
+                        resultSet.getString("phone"), 
                         resultSet.getString("address"),
-                        resultSet.getString("Email"),
+                        resultSet.getString("email"),
                         resultSet.getString("password"),
-                        resultSet.getString("picture"),
+                        resultSet.getString("pic"),
                         resultSet.getFloat("salary"),
-                        resultSet.getInt("class_id"));
+                        resultSet.getInt("permission_id"));
                 dataList.add(sta);
             }
         } catch (SQLException ex) {

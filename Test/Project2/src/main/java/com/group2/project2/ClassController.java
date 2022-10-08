@@ -1,5 +1,6 @@
 package com.group2.project2;
 
+import com.group2.project2.entities.attendanceEntity;
 import com.group2.project2.model.StudentList;
 import com.group2.project2.model.students;
 import java.net.URL;
@@ -15,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 
 public class ClassController implements Initializable{
     
@@ -40,6 +42,18 @@ public class ClassController implements Initializable{
     private TableColumn<students, String> col_rollno;
     
     @FXML
+    private TableColumn<students, Number> col_totalAbsent;
+    
+    @FXML
+    private Text lbl_subject;
+    
+    @FXML
+    private Text lbl_teacher;
+    
+    @FXML
+    private Text lbl_currentSession;
+    
+    @FXML
     private TableView<students> tbv_classList;
     
     @Override
@@ -47,6 +61,9 @@ public class ClassController implements Initializable{
         //Initialize layout
         lbl_class.setText("Class: " + StudentController.classInstance().getName());
         lbl_semester.setText("Semester: " + StudentController.semInstance().getSemester_id()%10);
+        lbl_subject.setText("Subject: " + StudentController.subjectInstance().getName() + " (" + StudentController.subjectInstance().getSessions() + " sessions)");
+        lbl_teacher.setText("Teacher: " + StudentController.staffInstance().getFullname());
+        lbl_currentSession.setText("Current Session: " + String.valueOf(attendanceEntity.currentByScheduleId(StudentController.scheduleInstance().getId())));
 //        List<StudentList> stdTable = new ArrayList<>();
 //        for (students student : StudentController.stdListInstance()) {
 //            stdTable.add(new StudentList(student.getRollno(), student.getFullname(), student.getBirthday(), student.getPhonenumber(), student.getAddress(), student.getEmail(), student.getPassword(), student.getPicture(), student.getStatus_id(), student.getSemester_id(), student.getClass_id()));
@@ -59,6 +76,7 @@ public class ClassController implements Initializable{
         col_rollno.setCellValueFactory(new PropertyValueFactory<>("rollno"));
         col_phone.setCellValueFactory(new PropertyValueFactory<>("phonenumber"));
         col_email.setCellValueFactory(new PropertyValueFactory<>("Email"));
+        col_totalAbsent.setCellValueFactory(new PropertyValueFactory<>("totalAbsent"));
         
         tbv_classList.setItems(data);
         

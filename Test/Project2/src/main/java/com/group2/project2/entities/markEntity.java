@@ -18,61 +18,49 @@ import java.util.logging.Logger;
  * @author ADMIN
  */
 public class markEntity extends BaseEntity{
-//    public static void insert(mark std){
-//        open();
-// 
-//        try{
-//            String sql = "insert into students(rollno, fullname, birthday, "
-//                    + "phonenumber, address, Email, password, picture, "
-//                    + "status_id, semester_id, class_id) " + "values "
-//                    + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-//            statement = conn.prepareStatement(sql);
-//            statement.setString(1, std.getRollno());
-//            statement.setString(2, std.getFullname());
-//            statement.setString(3, std.getBirthday());
-//            statement.setString(4, std.getPhonenumber());
-//            statement.setString(5, std.getAddress());
-//            statement.setString(6, std.getEmail());
-//            statement.setString(7, std.getPassword());
-//            statement.setString(8, std.getPicture());
-//            statement.setInt(9, std.getStatus_id());
-//            statement.setInt(10, std.getSemester_id());
-//            statement.setInt(11, std.getClass_id());
-//           
-//            statement.execute();
-//        
-//        }catch(SQLException e){
-//            close();
-//        }
-//    }
+    public static void insert(mark m){
+        open();
+ 
+        try{
+            String sql = "insert into mark(subject_id , student_rollno , mark_t1, mark_p1, create_at1, mark_t2, mark_p2, create_at2, values (?, ?, ?, ?, ?, ?, ?, ?)";
+            statement = conn.prepareStatement(sql);
+            statement.setInt(1, m.getSubject_id());
+            statement.setString(2, m.getStudent_rollno());
+            statement.setInt(3, m.getMark_t1());
+            statement.setInt(4, m.getMark_p1());
+            statement.setDate(5, m.getCreate_at1());
+            statement.setInt(6, m.getMark_t2());
+            statement.setInt(7, m.getMark_p2());
+            statement.setDate(8, m.getCreate_at2());
+           
+            statement.execute();
+        
+        }catch(SQLException e){
+            close();
+        }
+    }
 //    
-//    public static void update(students std) {
-//        open();
-//        
-//        try {
-//            String sql = "update students set fullname = ?, birthday = ?, "
-//                    + "phonenumber = ?, address = ?, Email = ?, password = ?, "
-//                    + "picture = ?, status_id = ?, semester_id = ?, "
-//                    + "class_id = ? where rollno = ?";
-//            
-//            statement = conn.prepareStatement(sql);
-//            statement.setString(1, std.getRollno());
-//            statement.setString(2, std.getFullname());
-//            statement.setString(3, std.getBirthday());
-//            statement.setString(4, std.getPhonenumber());
-//            statement.setString(5, std.getAddress());
-//            statement.setString(6, std.getEmail());
-//            statement.setString(7, std.getPassword());
-//            statement.setString(8, std.getPicture());
-//            statement.setInt(9, std.getStatus_id());
-//            statement.setInt(10, std.getSemester_id());
-//            statement.setInt(11, std.getClass_id());
-//
-//            statement.execute();
-//        } catch(SQLException e) {}
-//        
-//        close();
-//    }
+    public static void update(mark m) {
+        open();
+        
+        try {
+            String sql = "update mark set subject_id = ?, mark_t1 = ?, mark_p1 = ?, create_at1 = ?, mark_t2 = ?, mark_p2 = ?, create_at2 = ? where student_rollno = ?";
+            
+            statement = conn.prepareStatement(sql);
+            statement.setInt(1, m.getSubject_id());
+            statement.setInt(2, m.getMark_t1());
+            statement.setInt(3, m.getMark_p1());
+            statement.setDate(4, m.getCreate_at1());
+            statement.setInt(5, m.getMark_t2());
+            statement.setInt(6, m.getMark_p2());
+            statement.setDate(7, m.getCreate_at2());
+            statement.setString(8, m.getStudent_rollno());
+
+            statement.execute();
+        } catch(SQLException e) {}
+        
+        close();
+    }
 //    
 //    public static void delete(String rollno) {
 //        open();
@@ -91,12 +79,12 @@ public class markEntity extends BaseEntity{
 //        close();
 //    }
 
-        public static mark findByRollno(String rollno) {
-        mark m = null;
+        public static List<mark> findByRollno(String rollno) {
+        List<mark> dataList = new ArrayList<>();
         
         open();
         
-        String sql = "select * from mark where rollno = ?";
+        String sql = "select * from mark where student_rollno = ?";
         try {
             statement = conn.prepareStatement(sql);
             statement.setString(1, rollno);
@@ -104,28 +92,27 @@ public class markEntity extends BaseEntity{
             ResultSet resultSet = statement.executeQuery();
             
             while(resultSet.next()) {
-                m = new mark(
-                        resultSet.getInt("id"), 
-                        resultSet.getInt("subject_id"), 
-                        resultSet.getString("student_rollno"), 
-                        resultSet.getInt("mark_t1"), 
-                        resultSet.getInt("mark_p1"),
-                        TimeUnit.valueOf(resultSet.getDate("create_at1").toString()),
-                        resultSet.getInt("mark_t2"), 
-                        resultSet.getInt("mark_p2"),
-                        TimeUnit.valueOf(resultSet.getDate("create_at2").toString())
-                    );
-                break;
+                mark m = new mark(
+                    resultSet.getInt("id"), 
+                    resultSet.getInt("subject_id"), 
+                    resultSet.getString("student_rollno"), 
+                    resultSet.getInt("mark_t1"), 
+                    resultSet.getInt("mark_p1"),
+                    resultSet.getDate("create_at1"),
+                    resultSet.getInt("mark_t2"), 
+                    resultSet.getInt("mark_p2"),
+                    resultSet.getDate("create_at2")
+                );
+                dataList.add(m);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(markEntity.class.getName()).log(Level.SEVERE, 
-                    null, ex);
+            Logger.getLogger(markEntity.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
         close();
         
-        return m;
+        return dataList;
     }
         
 //    public static List<students> findByName(String s) {
@@ -141,7 +128,7 @@ public class markEntity extends BaseEntity{
 //            ResultSet resultSet = statement.executeQuery();
 //            
 //            while(resultSet.next()) {
-//                students std = new students(
+//                students m = new students(
 //                        resultSet.getString("rollno"), 
 //                        resultSet.getString("fullname"), 
 //                        resultSet.getString("birthday"), 
@@ -153,7 +140,7 @@ public class markEntity extends BaseEntity{
 //                        resultSet.getInt("status_id"),
 //                        resultSet.getInt("semester_id"),
 //                        resultSet.getInt("class_id"));
-//                dataList.add(std);
+//                dataList.add(m);
 //            }
 //        } catch (SQLException ex) {
 //            Logger.getLogger(markEntity.class.getName()).log(Level.SEVERE, null, ex);
@@ -177,7 +164,7 @@ public class markEntity extends BaseEntity{
 //            ResultSet resultSet = statement.executeQuery();
 //            
 //            while(resultSet.next()) {
-//                students std = new students(
+//                students m = new students(
 //                        resultSet.getString("rollno"), 
 //                        resultSet.getString("fullname"), 
 //                        resultSet.getString("birthday"), 
@@ -189,7 +176,7 @@ public class markEntity extends BaseEntity{
 //                        resultSet.getInt("status_id"),
 //                        resultSet.getInt("semester_id"),
 //                        resultSet.getInt("class_id"));
-//                dataList.add(std);
+//                dataList.add(m);
 //            }
 //        } catch (SQLException ex) {
 //            Logger.getLogger(markEntity.class.getName()).log(Level.SEVERE, null, ex);

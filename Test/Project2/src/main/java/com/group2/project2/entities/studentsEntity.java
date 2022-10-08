@@ -21,14 +21,14 @@ public class studentsEntity extends BaseEntity{
         open();
  
         try{
-            String sql = "insert into students(rollno, fullname, birthday, "
-                    + "phonenumber, address, Email, password, picture, "
-                    + "status_id, semester_id, class_id) " + "values "
+            String sql = "insert into students(rollno, fullname, birth, "
+                    + "phone, address, email, password, pic, "
+                    + "status_id, semester_id, class_id, gender) " + "values "
                     + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             statement = conn.prepareStatement(sql);
             statement.setString(1, std.getRollno());
             statement.setString(2, std.getFullname());
-            statement.setString(3, std.getBirthday());
+            statement.setDate(3, std.getBirthday());
             statement.setString(4, std.getPhonenumber());
             statement.setString(5, std.getAddress());
             statement.setString(6, std.getEmail());
@@ -37,6 +37,7 @@ public class studentsEntity extends BaseEntity{
             statement.setInt(9, std.getStatus_id());
             statement.setInt(10, std.getSemester_id());
             statement.setInt(11, std.getClass_id());
+            statement.setString(12, std.getGender());
            
             statement.execute();
         
@@ -49,23 +50,24 @@ public class studentsEntity extends BaseEntity{
         open();
         
         try {
-            String sql = "update students set fullname = ?, birthday = ?, "
-                    + "phonenumber = ?, address = ?, Email = ?, password = ?, "
-                    + "picture = ?, status_id = ?, semester_id = ?, "
-                    + "class_id = ? where rollno = ?";
+            String sql = "update students set fullname = ?, birth = ?, "
+                    + "phone = ?, address = ?, email = ?, password = ?, "
+                    + "pic = ?, status_id = ?, semester_id = ?, "
+                    + "class_id = ?, gender = ? where rollno = ?";
             
             statement = conn.prepareStatement(sql);
-            statement.setString(1, std.getRollno());
-            statement.setString(2, std.getFullname());
-            statement.setString(3, std.getBirthday());
-            statement.setString(4, std.getPhonenumber());
-            statement.setString(5, std.getAddress());
-            statement.setString(6, std.getEmail());
-            statement.setString(7, std.getPassword());
-            statement.setString(8, std.getPicture());
-            statement.setInt(9, std.getStatus_id());
-            statement.setInt(10, std.getSemester_id());
-            statement.setInt(11, std.getClass_id());
+            statement.setString(1, std.getFullname());
+            statement.setDate(2, std.getBirthday());
+            statement.setString(3, std.getPhonenumber());
+            statement.setString(4, std.getAddress());
+            statement.setString(5, std.getEmail());
+            statement.setString(6, std.getPassword());
+            statement.setString(7, std.getPicture());
+            statement.setInt(8, std.getStatus_id());
+            statement.setInt(9, std.getSemester_id());
+            statement.setInt(10, std.getClass_id());
+            statement.setString(11, std.getGender());
+            statement.setString(12, std.getRollno());
 
             statement.execute();
         } catch(SQLException e) {}
@@ -90,7 +92,7 @@ public class studentsEntity extends BaseEntity{
         close();
     }
 
-        public static students findByRollno(String rollno) {
+    public static students findByRollno(String rollno) {
         students std = null;
         
         open();
@@ -106,7 +108,7 @@ public class studentsEntity extends BaseEntity{
                 std = new students(
                         resultSet.getString("rollno"), 
                         resultSet.getString("fullname"), 
-                        resultSet.getString("birth"), 
+                        resultSet.getDate("birth"), 
                         resultSet.getString("phone"), 
                         resultSet.getString("address"),
                         resultSet.getString("email"),
@@ -114,7 +116,9 @@ public class studentsEntity extends BaseEntity{
                         resultSet.getString("pic"),
                         resultSet.getInt("status_id"),
                         resultSet.getInt("semester_id"),
-                        resultSet.getInt("class_id"));
+                        resultSet.getInt("class_id"),
+                        resultSet.getString("gender")
+                );
                 break;
             }
         } catch (SQLException ex) {
@@ -144,15 +148,17 @@ public class studentsEntity extends BaseEntity{
                 students std = new students(
                         resultSet.getString("rollno"), 
                         resultSet.getString("fullname"), 
-                        resultSet.getString("birthday"), 
+                        resultSet.getDate("birth"), 
                         resultSet.getString("phonenumber"), 
                         resultSet.getString("address"),
-                        resultSet.getString("Email"),
+                        resultSet.getString("email"),
                         resultSet.getString("password"),
-                        resultSet.getString("picture"),
+                        resultSet.getString("pic"),
                         resultSet.getInt("status_id"),
                         resultSet.getInt("semester_id"),
-                        resultSet.getInt("class_id"));
+                        resultSet.getInt("class_id"),
+                        resultSet.getString("gender")
+                );
                 dataList.add(std);
             }
         } catch (SQLException ex) {
@@ -181,7 +187,7 @@ public class studentsEntity extends BaseEntity{
                 students std = new students(
                         resultSet.getString("rollno"), 
                         resultSet.getString("fullname"), 
-                        resultSet.getString("birth"), 
+                        resultSet.getDate("birth"), 
                         resultSet.getString("phone"), 
                         resultSet.getString("address"),
                         resultSet.getString("email"),
@@ -189,7 +195,9 @@ public class studentsEntity extends BaseEntity{
                         resultSet.getString("pic"),
                         resultSet.getInt("status_id"),
                         resultSet.getInt("semester_id"),
-                        resultSet.getInt("class_id"));
+                        resultSet.getInt("class_id"),
+                        resultSet.getString("gender")
+                );
                 dataList.add(std);
             }
         } catch (SQLException ex) {
@@ -217,7 +225,7 @@ public class studentsEntity extends BaseEntity{
                 students std = new students(
                         resultSet.getString("rollno"), 
                         resultSet.getString("fullname"), 
-                        resultSet.getString("birthday"), 
+                        resultSet.getDate("birth"), 
                         resultSet.getString("phonenumber"), 
                         resultSet.getString("address"),
                         resultSet.getString("Email"),
@@ -225,7 +233,9 @@ public class studentsEntity extends BaseEntity{
                         resultSet.getString("picture"),
                         resultSet.getInt("status_id"),
                         resultSet.getInt("semester_id"),
-                        resultSet.getInt("class_id"));
+                        resultSet.getInt("class_id"),
+                        resultSet.getString("gender")
+                );
                 dataList.add(std);
             }
         } catch (SQLException ex) {

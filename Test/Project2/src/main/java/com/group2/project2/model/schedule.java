@@ -4,7 +4,7 @@
  */
 package com.group2.project2.model;
 
-import java.util.concurrent.TimeUnit;
+import java.sql.Date;
 
 /**
  *
@@ -12,13 +12,23 @@ import java.util.concurrent.TimeUnit;
  */
 public class schedule {
     private int id;
-    private int staff_id;
+//    private int staff_id;
     private int subject_id;
     private int class_id;
-    private TimeUnit start_date;
-    private TimeUnit end_date;
+    private Date start_date;
+    private Date end_date;
 
-    
+    public schedule() {
+    }
+
+    public schedule(int id, int subject_id, int class_id, Date start_date, Date end_date) {
+        this.id = id;
+//        this.staff_id = staff_id;
+        this.subject_id = subject_id;
+        this.class_id = class_id;
+        this.start_date = start_date;
+        this.end_date = end_date;
+    }
     
     public int getId() {
         return id;
@@ -28,13 +38,13 @@ public class schedule {
         this.id = id;
     }
 
-    public int getStaff_id() {
-        return staff_id;
-    }
-
-    public void setStaff_id(int staff_id) {
-        this.staff_id = staff_id;
-    }
+//    public int getStaff_id() {
+//        return staff_id;
+//    }
+//
+//    public void setStaff_id(int staff_id) {
+//        this.staff_id = staff_id;
+//    }
 
     public int getSubject_id() {
         return subject_id;
@@ -52,19 +62,19 @@ public class schedule {
         this.class_id = class_id;
     }
 
-    public TimeUnit getStart_date() {
+    public Date getStart_date() {
         return start_date;
     }
 
-    public void setStart_date(TimeUnit start_date) {
+    public void setStart_date(Date start_date) {
         this.start_date = start_date;
     }
 
-    public TimeUnit getEnd_date() {
+    public Date getEnd_date() {
         return end_date;
     }
 
-    public void setEnd_date(TimeUnit end_date) {
+    public void setEnd_date(Date end_date) {
         this.end_date = end_date;
     }
     

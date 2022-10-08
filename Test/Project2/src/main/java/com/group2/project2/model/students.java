@@ -4,6 +4,7 @@
  */
 package com.group2.project2.model;
 
+import java.sql.Date;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -13,34 +14,36 @@ import java.util.concurrent.TimeUnit;
 public class students {
     private String rollno;
     private String fullname;
-    private String birthday;
+    private Date birthday;
     private String phonenumber;
     private String address;
-    private String Email;
+    private String email;
     private String password;
     private String picture;
     private int status_id;
     private int semester_id;
     private int class_id;
+    private String gender;
 
     public students(String rollno) {
         this.rollno = rollno;
     }
 
-    public students(String rollno, String fullname, String birthday, 
-            String phonenumber, String address, String Email, String password, 
-            String picture, int status_id, int semester_id, int class_id) {
+    public students(String rollno, String fullname, Date birthday, 
+            String phonenumber, String address, String email, String password, 
+            String picture, int status_id, int semester_id, int class_id, String gender) {
         this.rollno = rollno;
         this.fullname = fullname;
         this.birthday = birthday;
         this.phonenumber = phonenumber;
         this.address = address;
-        this.Email = Email;
+        this.email = email;
         this.password = password;
         this.picture = picture;
         this.status_id = status_id;
         this.semester_id = semester_id;
         this.class_id = class_id;
+        this.gender = gender;
     }
 
     
@@ -61,11 +64,11 @@ public class students {
         this.fullname = fullname;
     }
 
-    public String getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 
@@ -86,11 +89,11 @@ public class students {
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
-    public void setEmail(String Email) {
-        this.Email = Email;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -133,13 +136,21 @@ public class students {
         this.class_id = class_id;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
     @Override
     public String toString() {
         return "students{" + "rollno=" + rollno + ", fullname=" + fullname + 
                 ", birthday=" + birthday + ", phonenumber=" + phonenumber + 
-                ", address=" + address + ", Email=" + Email + ", password=" + 
+                ", address=" + address + ", email=" + email + ", password=" + 
                 password + ", picture=" + picture + ", status_id=" + status_id + 
-                ", semester_id=" + semester_id + ", class_id=" + class_id + '}';
+                ", semester_id=" + semester_id + ", class_id=" + class_id + ", gender=" + gender + '}';
     }
     
     
