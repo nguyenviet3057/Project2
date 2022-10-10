@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane fx:id="container" maxHeight="720.0" maxWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group2.project2.MasterAppController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="1030.0" minWidth="10.0" prefWidth="234.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="953.0" minWidth="10.0" prefWidth="720.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="303.0" minWidth="10.0" prefWidth="303.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <children>
+      <Pane fx:id="pan_left" prefHeight="720.0" prefWidth="270.0" style="-fx-border-style: hidden solid hidden hidden; -fx-border-color: lightgray; -fx-border-width: 2;">
+         <children>
+            <Label fx:id="lbl_header" layoutX="66.0" layoutY="21.0" text="STUDENT">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="img_header" fitHeight="39.0" fitWidth="42.0" layoutX="21.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@app.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="100.0" layoutX="41.0" layoutY="671.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.5;">
+               <image>
+                  <Image url="@aptech_logo.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lbl_version" layoutX="137.0" layoutY="680.0" style="-fx-opacity: 0.5;" text="Version 1.0" />
+         </children>
+      </Pane>
+      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+         <children>
+            <Button fx:id="btn_studentApp" layoutX="191.0" layoutY="348.0" mnemonicParsing="false" onAction="#switchToStudentApp" text="Student" />
+            <Button fx:id="btn_teacherApp" layoutX="340.0" layoutY="348.0" mnemonicParsing="false" onAction="#switchToTeacherApp" text="Teacher" />
+            <Button fx:id="btn_staffApp" layoutX="491.0" layoutY="348.0" mnemonicParsing="false" onAction="#switchToStaffApp" text="Staff" />
+         </children></Pane>
+   </children>
+</GridPane>

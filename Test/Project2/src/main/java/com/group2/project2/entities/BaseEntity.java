@@ -29,7 +29,7 @@ import java.util.logging.Logger;
  * @author ADMIN
  */
 public class BaseEntity{
-    static final String DATABASE = "eproject";
+    static final String DATABASE = "project2";
     static final String USERNAME = "root";
     static final String PWD = "";
     static Connection conn = null;

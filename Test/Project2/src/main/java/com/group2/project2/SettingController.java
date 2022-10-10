@@ -11,9 +11,9 @@ public class SettingController {
 
     @FXML
     void switchTheme(MouseEvent event) {
-        System.out.println("Clicked: Previous Theme " + MainLayoutController.theme);
-        MainLayoutController.theme = !MainLayoutController.theme;
-        if (MainLayoutController.theme) {
+        System.out.println("Clicked: Previous Theme " + StudentAppController.theme);
+        StudentAppController.theme = !StudentAppController.theme;
+        if (StudentAppController.theme) {
             System.out.println("Changed Theme");
 //            System.out.println(MainLayoutController.container);
         }

@@ -25,7 +25,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
-public class MainLayoutController implements Initializable{
+public class StudentAppController implements Initializable{
     
     public static boolean theme = false;
 
@@ -108,6 +108,7 @@ public class MainLayoutController implements Initializable{
             next.setStyle("-fx-alignment: center-left; -fx-background-color: white; -fx-cursor: hand");
         }
     }
+    
     void switchToLayout(int layout_number) {
         resetBtnBackground();
         String layout_fxml;
@@ -196,7 +197,7 @@ public class MainLayoutController implements Initializable{
                     try {
                         Thread.sleep(1000);
                     } catch (InterruptedException ex) {
-                        Logger.getLogger(MainLayoutController.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(StudentAppController.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }
@@ -223,7 +224,7 @@ public class MainLayoutController implements Initializable{
             //Default Layout
             switchToDashboard();
         } catch (IOException ex) {
-            Logger.getLogger(MainLayoutController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(StudentAppController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
