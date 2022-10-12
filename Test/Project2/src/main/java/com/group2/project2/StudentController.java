@@ -1,8 +1,10 @@
+package com.group2.project2;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.group2.project2;
+
 
 import com.group2.project2.entities.bookingEntity;
 import com.group2.project2.entities.classesEntity;
@@ -112,12 +114,28 @@ public class StudentController {
     private static booking bk = null;
     public static booking bookingInstance() {
         for (booking b : bookingListInstance()) {
-            if (b.getBegin_time().toLocalDateTime().toLocalDate().equals(LocalDate.now().minusYears(3).minusMonths(5))) {
+            if (b.getBegin_time().toLocalDateTime().toLocalDate().equals(LocalDate.now())) {
 //                System.out.println("booking: " + bk);
                 return b;
             }
         }
 //        System.out.println("booking: null");
         return null;
+    }
+    
+    public static void resetData() {
+        std = null;
+        cl = null;
+        sem = null;
+        semList = null;
+        markList = null;
+        stdList = null;
+        sj = null;
+        sjList = null;
+        sta = null;
+        scd = null;
+        bookList = null;
+        bk = null;
+        
     }
 }

@@ -41,5 +41,6 @@ public class Test {
 //
 //        String formattedDate = myDateObj.format(myFormatObj);
 //        System.out.println("After formatting: " + formattedDate);
+        System.out.println("LOCAL Time: " + LocalDateTime.now().toLocalTime().toString().substring(0, 5));
     }
 }

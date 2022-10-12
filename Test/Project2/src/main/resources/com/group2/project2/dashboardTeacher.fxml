@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="pan_content" prefHeight="620.0" prefWidth="731.0" style="-fx-background-color: white;" stylesheets="@dashboard.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group2.project2.DashboardTeacherController">
+          <children>
+              <Line endX="150.0" layoutX="115.0" layoutY="87.0" startX="-100.0" strokeWidth="2.0">
+                  <stroke>
+                      <LinearGradient endX="1.0" endY="1.0">
+                          <stops>
+                              <Stop>
+                                  <color>
+                                      <Color red="1.0" green="1.0" blue="1.0" />
+                                  </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                  <color>
+                                      <Color green="1.0" />
+                                  </color>
+                              </Stop>
+                          </stops>
+                      </LinearGradient>
+                  </stroke>
+              </Line>
+              <Label alignment="CENTER" layoutX="327.0" layoutY="73.0" text="Booking" textAlignment="CENTER" textFill="LIME">
+                  <font>
+                      <Font name="System Bold" size="20.0" />
+                  </font>
+              </Label>
+              <Line endX="150.0" layoutX="566.0" layoutY="87.0" startX="-100.0" strokeWidth="2.0">
+                  <stroke>
+                      <LinearGradient endX="1.0" endY="1.0">
+                          <stops>
+                              <Stop>
+                                  <color>
+                                      <Color green="1.0" />
+                                  </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                  <color>
+                                      <Color red="1.0" green="1.0" blue="1.0" />
+                                  </color>
+                              </Stop>
+                          </stops>
+                      </LinearGradient>
+                  </stroke>
+              </Line>
+              <Label layoutX="19.0" layoutY="106.0" prefHeight="39.0" prefWidth="116.0" text="Schedule:" textFill="#00ccff">
+                  <font>
+                      <Font name="System Bold" size="20.0" />
+                  </font>
+                  <padding>
+                      <Insets left="20.0" />
+                  </padding>
+              </Label>
+              <Label fx:id="lbl_booking" layoutX="135.0" layoutY="106.0" prefHeight="39.0" prefWidth="571.0" text="No class" textFill="#00ccff">
+                  <font>
+                      <Font size="20.0" />
+                  </font>
+              </Label>
+              <Line endX="150.0" layoutX="115.0" layoutY="174.0" startX="-100.0" strokeWidth="2.0">
+                  <stroke>
+                      <LinearGradient endX="1.0" endY="1.0">
+                          <stops>
+                              <Stop>
+                                  <color>
+                                      <Color red="1.0" green="1.0" blue="1.0" />
+                                  </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                  <color>
+                                      <Color green="1.0" />
+                                  </color>
+                              </Stop>
+                          </stops>
+                      </LinearGradient>
+                  </stroke>
+              </Line>
+              <Label layoutX="304.0" layoutY="158.0" text="Achievement" textFill="LIME">
+                  <font>
+                      <Font name="System Bold" size="20.0" />
+                  </font>
+              </Label>
+              <Line endX="150.0" layoutX="566.0" layoutY="174.0" startX="-100.0" strokeWidth="2.0">
+                  <stroke>
+                      <LinearGradient endX="1.0" endY="1.0">
+                          <stops>
+                              <Stop>
+                                  <color>
+                                      <Color green="1.0" />
+                                  </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                  <color>
+                                      <Color red="1.0" green="1.0" blue="1.0" />
+                                  </color>
+                              </Stop>
+                          </stops>
+                      </LinearGradient>
+                  </stroke>
+              </Line>
+      <Label layoutX="289.0" layoutY="205.0" prefHeight="30.0" prefWidth="152.0" style="-fx-alignment: center;" text="Class List" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.843137264251709" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.31208053691275167">
+                     <color>
+                        <Color red="1.0" green="0.843137264251709" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Line endX="473.0" layoutX="164.0" layoutY="439.0" startX="-110.0" visible="false" />
+      <TableView fx:id="tbv_classList" layoutX="13.0" layoutY="235.0" prefHeight="276.0" prefWidth="706.0">
+        <columns>
+          <TableColumn fx:id="col_no" prefWidth="42.0" text="No" />
+          <TableColumn fx:id="col_name" prefWidth="128.0" text="Name" />
+            <TableColumn fx:id="col_day" prefWidth="248.0" text="Day of week" />
+            <TableColumn fx:id="col_time" prefWidth="287.0" text="Time" />
+        </columns>
+      </TableView>
+          </children>
+      </Pane>

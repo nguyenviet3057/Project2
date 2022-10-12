@@ -107,8 +107,7 @@ public class classesEntity extends BaseEntity{
             while(resultSet.next()) {
                 cl = new classes(
                         resultSet.getInt("id"),
-                        resultSet.getString("name"), 
-                        resultSet.getInt("n_std"), 
+                        resultSet.getString("name"),
                         resultSet.getInt("staff_id")
                     );
                 break;
@@ -161,6 +160,36 @@ public class classesEntity extends BaseEntity{
 //        return dataList;
 //    }
 //    
+      public static List<classes> findByStaffId(int staff_id) {
+        List<classes> dataList = new ArrayList<>();
+        
+        open();
+        
+        String sql = "select * from class where staff_id = ?";
+        try {
+            statement = conn.prepareStatement(sql);
+            statement.setInt(1, staff_id);
+            
+            ResultSet resultSet = statement.executeQuery();
+            
+            while(resultSet.next()) {
+                classes cl = new classes(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getInt("staff_id")
+                    );
+                dataList.add(cl);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(classesEntity.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        close();
+        
+        return dataList;
+    }
+        
 //    public static List<students> list() {
 //        List<students> dataList = new ArrayList<>();
 //        

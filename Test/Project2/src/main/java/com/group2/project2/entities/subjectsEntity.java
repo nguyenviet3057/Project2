@@ -135,6 +135,35 @@ public class subjectsEntity extends BaseEntity{
         return dataList;
     }
     
+    public static List<subjects> findByStaffId(int staff_id) {
+        List<subjects> dataList = new ArrayList<>();
+        
+        open();
+        
+        String sql = "select * from subject where staff_id = ?";
+        try {
+            statement = conn.prepareStatement(sql);
+            statement.setInt(1, staff_id);
+            
+            ResultSet resultSet = statement.executeQuery();
+            
+            while(resultSet.next()) {
+                subjects subj = new subjects(
+                        resultSet.getInt("id"), 
+                        resultSet.getString("name"), 
+                        resultSet.getInt("session"), 
+                        resultSet.getInt("staff_id"));
+                dataList.add(subj);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(subjectsEntity.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        close();
+        
+        return dataList;
+    }
+    
     public static List<subjects> list() {
         List<subjects> dataList = new ArrayList<>();
         

@@ -73,7 +73,7 @@
                         <Insets left="30.0" />
                      </padding>
                   </Button>
-                  <Button fx:id="btn_news" mnemonicParsing="false" onAction="#switchToNews" pickOnBounds="false" prefHeight="125.0" prefWidth="230.0" style="-fx-alignment: center-left; -fx-background-color: white; -fx-cursor: hand;" text="News" GridPane.rowIndex="2">
+                  <Button fx:id="btn_news" mnemonicParsing="false" onAction="#switchToNews" pickOnBounds="false" prefHeight="125.0" prefWidth="230.0" style="-fx-alignment: center-left; -fx-background-color: white; -fx-cursor: hand;" text="News" GridPane.rowIndex="3">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -84,7 +84,7 @@
                         <Insets left="30.0" />
                      </padding>
                   </Button>
-                  <Button fx:id="btn_form" mnemonicParsing="false" onAction="#switchToForm" pickOnBounds="false" prefHeight="101.0" prefWidth="225.0" style="-fx-alignment: center-left; -fx-background-color: white; -fx-cursor: hand;" text="Form" GridPane.rowIndex="3">
+                  <Button fx:id="btn_form" mnemonicParsing="false" onAction="#switchToForm" pickOnBounds="false" prefHeight="101.0" prefWidth="225.0" style="-fx-alignment: center-left; -fx-background-color: white; -fx-cursor: hand;" text="Form" GridPane.rowIndex="4">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -95,7 +95,18 @@
                         <Insets left="30.0" />
                      </padding>
                   </Button>
-                  <Button fx:id="btn_setting" mnemonicParsing="false" onAction="#switchToSetting" pickOnBounds="false" prefHeight="94.0" prefWidth="214.0" style="-fx-alignment: center-left; -fx-background-color: white; -fx-cursor: hand;" text="Setting" GridPane.rowIndex="4">
+                  <Button fx:id="btn_setting" mnemonicParsing="false" onAction="#switchToSetting" pickOnBounds="false" prefHeight="94.0" prefWidth="214.0" style="-fx-alignment: center-left; -fx-background-color: white; -fx-cursor: hand;" text="Setting" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="30.0" />
+                     </padding>
+                  </Button>
+                  <Button fx:id="btn_mark" mnemonicParsing="false" onAction="#switchToMark" pickOnBounds="false" prefHeight="125.0" prefWidth="230.0" style="-fx-alignment: center-left; -fx-background-color: white; -fx-cursor: hand;" text="Mark" GridPane.rowIndex="2">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>

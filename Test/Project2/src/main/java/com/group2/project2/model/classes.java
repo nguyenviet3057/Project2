@@ -11,16 +11,14 @@ package com.group2.project2.model;
 public class classes {
     private int id;
     private String name;
-    private int n_std;
     private int staff_id;
 
     public classes() {
     }
 
-    public classes(int id, String name, int n_std, int staff_id) {
+    public classes(int id, String name, int staff_id) {
         this.id = id;
         this.name = name;
-        this.n_std = n_std;
         this.staff_id = staff_id;
     }
     
@@ -38,14 +36,6 @@ public class classes {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getN_std() {
-        return n_std;
-    }
-
-    public void setN_std(int n_std) {
-        this.n_std = n_std;
     }
 
     public int getStaff_id() {

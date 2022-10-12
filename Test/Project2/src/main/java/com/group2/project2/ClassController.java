@@ -27,22 +27,22 @@ public class ClassController implements Initializable{
     private Label lbl_semester;
     
     @FXML
-    private TableColumn<students, Number> col_no;
+    private TableColumn<StudentList, Number> col_no;
     
     @FXML
-    private TableColumn<students, String> col_name;
+    private TableColumn<StudentList, String> col_name;
 
     @FXML
-    private TableColumn<students, String> col_email;
+    private TableColumn<StudentList, String> col_email;
 
     @FXML
-    private TableColumn<students, String> col_phone;
+    private TableColumn<StudentList, String> col_phone;
 
     @FXML
-    private TableColumn<students, String> col_rollno;
+    private TableColumn<StudentList, String> col_rollno;
     
     @FXML
-    private TableColumn<students, Number> col_totalAbsent;
+    private TableColumn<StudentList, Number> col_totalAbsent;
     
     @FXML
     private Text lbl_subject;
@@ -54,7 +54,7 @@ public class ClassController implements Initializable{
     private Text lbl_currentSession;
     
     @FXML
-    private TableView<students> tbv_classList;
+    private TableView<StudentList> tbv_classList;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -69,7 +69,7 @@ public class ClassController implements Initializable{
 //            stdTable.add(new StudentList(student.getRollno(), student.getFullname(), student.getBirthday(), student.getPhonenumber(), student.getAddress(), student.getEmail(), student.getPassword(), student.getPicture(), student.getStatus_id(), student.getSemester_id(), student.getClass_id()));
 //        }
 
-        ObservableList<students> data = FXCollections.observableArrayList(StudentList.stdTableInstance());
+        ObservableList<StudentList> data = FXCollections.observableArrayList(StudentList.stdTableInstance(0));
 //        System.out.println(data.toString());
         col_no.setCellValueFactory(new PropertyValueFactory<>("no"));
         col_name.setCellValueFactory(new PropertyValueFactory<>("fullname"));

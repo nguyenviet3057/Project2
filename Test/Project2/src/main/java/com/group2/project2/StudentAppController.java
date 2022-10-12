@@ -1,5 +1,7 @@
 package com.group2.project2;
 
+
+
 import com.group2.project2.model.students;
 import java.io.IOException;
 import java.net.URL;
@@ -114,30 +116,30 @@ public class StudentAppController implements Initializable{
         String layout_fxml;
         switch (layout_number) {
             case 2:
-                layout_fxml = "class.fxml";
+                layout_fxml = "class";
                 btn_class.setStyle("-fx-alignment: center-left; -fx-background-color: #f0f0f0; -fx-cursor: hand");
                 break;
             case 3:
-                layout_fxml = "mark.fxml";
+                layout_fxml = "mark";
                 btn_mark.setStyle("-fx-alignment: center-left; -fx-background-color: #f0f0f0; -fx-cursor: hand");
                 break;
             case 4:
-                layout_fxml = "news.fxml";
+                layout_fxml = "news";
                 btn_news.setStyle("-fx-alignment: center-left; -fx-background-color: #f0f0f0; -fx-cursor: hand");
                 break;
             case 5:
-                layout_fxml = "form.fxml";
+                layout_fxml = "form";
                 btn_form.setStyle("-fx-alignment: center-left; -fx-background-color: #f0f0f0; -fx-cursor: hand");
                 break;
             case 6:
-                layout_fxml = "setting.fxml";
+                layout_fxml = "setting";
                 btn_setting.setStyle("-fx-alignment: center-left; -fx-background-color: #f0f0f0; -fx-cursor: hand");
                 break;
             case 7:
-                layout_fxml = "editStudent.fxml";
+                layout_fxml = "editStudent";
                 break;
             default:
-                layout_fxml = "dashboard.fxml";
+                layout_fxml = "dashboard";
                 btn_dashboard.setStyle("-fx-alignment: center-left; -fx-background-color: #f0f0f0; -fx-cursor: hand");
                 break;
         }
@@ -145,7 +147,7 @@ public class StudentAppController implements Initializable{
             mid_pane.getChildren().remove(1);
         }
         try {
-            Pane newLoadedPane =  FXMLLoader.load(getClass().getResource(layout_fxml));
+            Pane newLoadedPane =  FXMLLoader.load(getClass().getResource("/com/group2/project2/" + layout_fxml + ".fxml"));
             mid_pane.add(newLoadedPane,0,1);
         } catch (IOException ex) {
             Logger.getLogger(ClassController.class.getName()).log(Level.SEVERE, null, ex);
@@ -180,6 +182,11 @@ public class StudentAppController implements Initializable{
     @FXML
     void switchToEditStudent() throws IOException {
         switchToLayout(7);
+    }
+    
+    public void switchToMasterApp() throws IOException {
+        StudentController.resetData();
+        App.setRoot("MasterApp");
     }
     
     @Override
