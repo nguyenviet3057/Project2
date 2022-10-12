@@ -56,6 +56,7 @@ public class attendanceEntity {
     }
     
     public static int currentByScheduleId(int schedule_id) {
+        System.out.println(schedule_id);
         int current_session = 0;
         
         open();
@@ -69,6 +70,7 @@ public class attendanceEntity {
             
             while(resultSet.next()) {
                 current_session = Integer.parseInt(resultSet.getString("Current Session"));
+//                System.out.println("Schedule ID: " + schedule_id + "\nCurrent Session: " + resultSet.getString("Current Session"));
                 break;
             }
         } catch (SQLException ex) {
@@ -77,6 +79,7 @@ public class attendanceEntity {
         
         close();
         
+//        System.out.println("Check current_session: " + current_session);
         return current_session;
     }
 }

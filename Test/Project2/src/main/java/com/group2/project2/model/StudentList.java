@@ -55,7 +55,7 @@ public class StudentList extends students {
 //                HashMap<Number,  ComboBox> _attendance1 = new HashMap<>();
 //                HashMap<Number, ComboBox> _attendance2 = new HashMap<>();
                 for (attendance atd : attendanceEntity.totalPresentByScheduleId_StudentRollno(sch.getId() ,student.getRollno())) {
-                    
+//                    System.out.println("Added");
                     if (atd.getAttendance1().compareTo("PA")==0) {
 //                        _attendance1.put(++session1, new ComboBox(dayOfWeek));
                         stdElement.getAttendance1().add("PA");

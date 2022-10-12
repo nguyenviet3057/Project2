@@ -107,7 +107,8 @@ public class DashboardTeacherController implements Initializable{
                 break;
         }
         
-        TeacherController.setCurrentSession(attendanceEntity.currentByScheduleId(scheduleEntity.findBySubject_Class(TeacherController.subjectListInstance().get(0).getId(), TeacherController.getBookingClassId()).getId()));
+        TeacherController.setCurrentSession(attendanceEntity.currentByScheduleId(scheduleEntity.findBySubject_Class(TeacherController.subjectListInstance().get(0).getId(), 1).getId())); //Change 1 to TeacherController.getBookingClassId()
+//        System.out.println("ID: " + attendanceEntity.currentByScheduleId(1)); //scheduleEntity.findBySubject_Class(TeacherController.subjectListInstance().get(0).getId(), TeacherController.getBookingClassId()).getId()
 //        if (StudentController.bookingInstance() != null)
 //            lbl_booking.setText(StudentController.subjectInstance().getName() + " | " + StudentController.bookingInstance().getBegin_time().toLocalDateTime().toLocalTime().toString() + " - " + StudentController.bookingInstance().getEnd_time().toLocalDateTime().toLocalTime().toString());
 //        else lbl_booking.setText("No class today");
