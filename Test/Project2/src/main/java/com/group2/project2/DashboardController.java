@@ -105,21 +105,20 @@ public class DashboardController implements Initializable{
             double avilableBarSpace = catSpace - (chart_avgmark.getCategoryGap() + chart_avgmark.getBarGap());
             double barWidth = (avilableBarSpace / chart_avgmark.getData().size()) - chart_avgmark.getBarGap();
     //        System.out.println(chart_avgmark.getData().size() + " " + chart_avgmark.getCategoryGap() + " " + avilableBarSpace + " " + barWidth);
-        }
-        
-        Node chart_bg = chart_avgmark.lookup(".chart-legend");
-        chart_bg.setStyle("-fx-background-color: transparent");
-        for (int i=0; i<mark_T.getData().size(); i++) {
-            Node n = chart_avgmark.lookup(".chart-bar.data"+i+".series0");
-            n.setStyle("-fx-bar-fill: gold;");
-            n = chart_avgmark.lookup(".chart-bar.data"+i+".series1");
-            n.setStyle("-fx-bar-fill: gold; -fx-opacity: 0.5;");
-            //Only 2 series: mark_T and mark_P
-//            n = chart_avgmark.lookup(".chart-bar.data"+i+".series2");
-//            n.setStyle("-fx-bar-fill: red;");
-//            n = chart_avgmark.lookup(".chart-bar.data"+i+".series3");
-//            n.setStyle("-fx-bar-fill: red; -fx-opacity: 0.5;");
-        }
+            Node chart_bg = chart_avgmark.lookup(".chart-legend");
+            chart_bg.setStyle("-fx-background-color: transparent");
+            for (int i=0; i<mark_T.getData().size(); i++) {
+                Node n = chart_avgmark.lookup(".chart-bar.data"+i+".series0");
+                n.setStyle("-fx-bar-fill: gold;");
+                n = chart_avgmark.lookup(".chart-bar.data"+i+".series1");
+                n.setStyle("-fx-bar-fill: gold; -fx-opacity: 0.5;");
+                //Only 2 series: mark_T and mark_P
+    //            n = chart_avgmark.lookup(".chart-bar.data"+i+".series2");
+    //            n.setStyle("-fx-bar-fill: red;");
+    //            n = chart_avgmark.lookup(".chart-bar.data"+i+".series3");
+    //            n.setStyle("-fx-bar-fill: red; -fx-opacity: 0.5;");
+            }
+    }
         
 //        Node m = chart_avgmark.lookup(".bar-chart");
 //        System.out.println(m.getCssMetaData());

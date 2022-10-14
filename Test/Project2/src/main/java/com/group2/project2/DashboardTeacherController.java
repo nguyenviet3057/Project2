@@ -75,7 +75,7 @@ public class DashboardTeacherController implements Initializable{
                                 TeacherController.setBookingClassId(cl.getId());
                                 break;
                             }
-                            System.out.println("Checked");
+//                            System.out.println("Checked");
                         }
                     } else {
                         lbl_booking.setText("No class");
@@ -108,6 +108,7 @@ public class DashboardTeacherController implements Initializable{
         }
         
         TeacherController.setCurrentSession(attendanceEntity.currentByScheduleId(scheduleEntity.findBySubject_Class(TeacherController.subjectListInstance().get(0).getId(), 1).getId())); //Change 1 to TeacherController.getBookingClassId()
+//        System.out.println(attendanceEntity.currentByScheduleId(scheduleEntity.findBySubject_Class(TeacherController.subjectListInstance().get(0).getId(), 1).getId()));
 //        System.out.println("ID: " + attendanceEntity.currentByScheduleId(1)); //scheduleEntity.findBySubject_Class(TeacherController.subjectListInstance().get(0).getId(), TeacherController.getBookingClassId()).getId()
 //        if (StudentController.bookingInstance() != null)
 //            lbl_booking.setText(StudentController.subjectInstance().getName() + " | " + StudentController.bookingInstance().getBegin_time().toLocalDateTime().toLocalTime().toString() + " - " + StudentController.bookingInstance().getEnd_time().toLocalDateTime().toLocalTime().toString());

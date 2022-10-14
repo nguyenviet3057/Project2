@@ -108,7 +108,7 @@ public class scheduleEntity {
     }
         
     public static schedule findBySubject_Class(int subject_id, int class_id) {
-        System.out.println(subject_id + " | " + class_id);
+//        System.out.println(subject_id + " | " + class_id);
         schedule scd = null;
         
         open();

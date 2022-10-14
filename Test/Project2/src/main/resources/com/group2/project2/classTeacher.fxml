@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane prefHeight="620.0" prefWidth="731.0" style="-fx-background-color: white;" stylesheets="@mark.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group2.project2.ClassTeacherController">
+<Pane prefHeight="620.0" prefWidth="731.0" style="-fx-background-color: white;" stylesheets="@mark.css" xmlns="http://javafx.com/javafx/8.0.331" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group2.project2.ClassTeacherController">
    <children>
       <Text fx:id="lbl_teacher" fill="#006480" layoutX="46.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class: &lt;teacher_name&gt;" wrappingWidth="402.0">
          <font>

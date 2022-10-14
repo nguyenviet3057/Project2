@@ -36,11 +36,51 @@ public class TeacherController {
     private static int currentSession = 0;
 
     public static int getCurrentSession() {
+//        System.out.println("current: " + currentSession);
+        return currentSession;
+    }
+    
+    public static int currentSessionInstance() {
+        if (currentSession == 0) return 0;
         return currentSession;
     }
 
     public static void setCurrentSession(int currentSession) {
-        TeacherController.currentSession = currentSession;
+        if (TeacherController.currentSession == 0) {
+//            System.out.println("Set currenSession");
+            TeacherController.currentSession = currentSession;
+        }
+    }
+    
+    private static int teachSession = 0;
+
+    public static int getTeachSession() {
+        return currentSession+1;
+    }
+
+    public static void setTeachSession(int teachSession) {
+        TeacherController.teachSession = teachSession;
+    }
+    
+    private static int displaySession = 0;
+
+    public static int getDisplaySession() {
+        if (displaySession == 0) return currentSession;
+        return displaySession;
+    }
+
+    public static void setDisplaySession(int teachSession) {
+        TeacherController.displaySession = teachSession;
+    }
+    
+    private static int curentSchedule = scheduleEntity.findBySubject_Class(1, 1).getId();
+
+    public static int getCurentSchedule() {
+        return curentSchedule;
+    }
+
+    public static void setCurentSchedule(int curentSchedule) {
+        TeacherController.curentSchedule = curentSchedule;
     }
     
     private static int bookingClassId;

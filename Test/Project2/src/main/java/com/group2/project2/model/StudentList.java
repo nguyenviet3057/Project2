@@ -1,10 +1,13 @@
 package com.group2.project2.model;
 
 import com.group2.project2.StudentController;
+import static com.group2.project2.StudentController.stdInstance;
 import com.group2.project2.TeacherController;
 import com.group2.project2.entities.attendanceEntity;
+import com.group2.project2.entities.markEntity;
 import com.group2.project2.entities.scheduleEntity;
 import com.group2.project2.entities.studentsEntity;
+import com.group2.project2.entities.subjectsEntity;
 import com.group2.project2.model.students;
 import java.sql.Date;
 import java.util.ArrayList;
@@ -12,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
 
 public class StudentList extends students {
@@ -20,6 +24,24 @@ public class StudentList extends students {
     float totalAbsent;
     List<String> attendance1;
     List<String> attendance2;
+    int theory;
+    int practice;
+
+    public int getTheory() {
+        return theory;
+    }
+
+    public void setTheory(int theory) {
+        this.theory = theory;
+    }
+
+    public int getPractice() {
+        return practice;
+    }
+
+    public void setPractice(int practice) {
+        this.practice = practice;
+    }
 
     private StudentList(String rollno, String fullname, Date birthday, String phonenumber, String address, String Email, String password, String picture, int status_id, int semester_id, int class_id, String gender, float totalAbsent) {
         super(rollno, fullname, birthday, phonenumber, address, Email, password, picture, status_id, semester_id, class_id, gender);
@@ -27,6 +49,13 @@ public class StudentList extends students {
         this.totalAbsent = totalAbsent;
         attendance1 = new ArrayList<>();
         attendance2 = new ArrayList<>();
+    }
+    
+    private static List<mark> markList = null;
+    public static List<mark> markListInstance(String rollno){
+        if (markList == null) markList = markEntity.findByRollno(rollno);
+//        System.out.println(markList.toString());
+        return markList;
     }
 
     private static List<StudentList> stdTable = null;

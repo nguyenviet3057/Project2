@@ -47,6 +47,7 @@ public class studentsEntity extends BaseEntity{
     }
     
     public static void update(students std) {
+        System.out.println(std.getRollno());
         open();
         
         try {
