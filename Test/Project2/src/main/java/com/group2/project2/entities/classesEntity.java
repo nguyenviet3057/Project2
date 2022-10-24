@@ -108,6 +108,7 @@ public class classesEntity extends BaseEntity{
                 cl = new classes(
                         resultSet.getInt("id"),
                         resultSet.getString("name"),
+                        resultSet.getInt("semester_id"),
                         resultSet.getInt("staff_id")
                     );
                 break;
@@ -123,42 +124,33 @@ public class classesEntity extends BaseEntity{
         return cl;
     }
         
-//    public static List<students> findByName(String s) {
-//        List<students> dataList = new ArrayList<>();
-//        
-//        open();
-//        
-//        String sql = "select * from students where fullname like ?";
-//        try {
-//            statement = conn.prepareStatement(sql);
-//            statement.setString(1, "%"+s+"%");
-//            
-//            ResultSet resultSet = statement.executeQuery();
-//            
-//            while(resultSet.next()) {
-//                students std = new students(
-//                        resultSet.getString("rollno"), 
-//                        resultSet.getString("fullname"), 
-//                        resultSet.getString("birthday"), 
-//                        resultSet.getString("phonenumber"), 
-//                        resultSet.getString("address"),
-//                        resultSet.getString("Email"),
-//                        resultSet.getString("password"),
-//                        resultSet.getString("picture"),
-//                        resultSet.getInt("status_id"),
-//                        resultSet.getInt("semester_id"),
-//                        resultSet.getInt("class_id"));
-//                dataList.add(std);
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(markEntity.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        
-//        
-//        close();
-//        
-//        return dataList;
-//    }
+    public static List<classes> list() {
+        List<classes> dataList = new ArrayList<>();
+        
+        open();
+        
+        String sql = "select * from class";
+        try {
+            statement = conn.prepareStatement(sql);
+            
+            ResultSet resultSet = statement.executeQuery();
+            
+            while(resultSet.next()) {
+                classes cl = new classes(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getInt("semester_id"),
+                        resultSet.getInt("staff_id")
+                    );
+                dataList.add(cl);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(classesEntity.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        close();
+        
+        return dataList;
+    }
 //    
       public static List<classes> findByStaffId(int staff_id) {
         List<classes> dataList = new ArrayList<>();
@@ -176,6 +168,7 @@ public class classesEntity extends BaseEntity{
                 classes cl = new classes(
                         resultSet.getInt("id"),
                         resultSet.getString("name"),
+                        resultSet.getInt("semester_id"),
                         resultSet.getInt("staff_id")
                     );
                 dataList.add(cl);
@@ -189,41 +182,5 @@ public class classesEntity extends BaseEntity{
         
         return dataList;
     }
-        
-//    public static List<students> list() {
-//        List<students> dataList = new ArrayList<>();
-//        
-//        open();
-//        
-//        String sql = "select * from students";
-//        try {
-//            statement = conn.prepareStatement(sql);
-//            
-//            ResultSet resultSet = statement.executeQuery();
-//            
-//            while(resultSet.next()) {
-//                students std = new students(
-//                        resultSet.getString("rollno"), 
-//                        resultSet.getString("fullname"), 
-//                        resultSet.getString("birthday"), 
-//                        resultSet.getString("phonenumber"), 
-//                        resultSet.getString("address"),
-//                        resultSet.getString("Email"),
-//                        resultSet.getString("password"),
-//                        resultSet.getString("picture"),
-//                        resultSet.getInt("status_id"),
-//                        resultSet.getInt("semester_id"),
-//                        resultSet.getInt("class_id"));
-//                dataList.add(std);
-//            }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(markEntity.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        
-//        
-//        close();
-//        
-//        return dataList;
-//    }
 }
     

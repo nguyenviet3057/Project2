@@ -197,4 +197,40 @@ public class semesterEntity {
         
         return dataList;
     }
+    
+    public static List<semester> listUnique() {
+        List<semester> dataList = new ArrayList<>();
+        
+        open();
+        
+        String sql = "select * from semester";
+        try {
+            statement = conn.prepareStatement(sql);
+            
+            ResultSet resultSet = statement.executeQuery();
+            
+            while(resultSet.next()) {
+                boolean isUnique = true;
+                semester sem = new semester(
+                        resultSet.getInt("id"), 
+                        resultSet.getInt("semester_no"), 
+                        0, 
+                        resultSet.getDate("start_year"));
+                for (semester semElement : dataList) {
+                    if (semElement.getSemester_id() == sem.getSemester_id()) {
+                        isUnique = false;
+                        break;
+                    }
+                }
+                if (isUnique) dataList.add(sem);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(semesterEntity.class.getName()).log(Level.SEVERE,
+                    null, ex);
+        }
+        
+        close();
+        
+        return dataList;
+    }
 }

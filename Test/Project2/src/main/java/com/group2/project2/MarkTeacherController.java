@@ -1,6 +1,8 @@
 package com.group2.project2;
 
 import com.group2.project2.entities.attendanceEntity;
+import com.group2.project2.entities.classesEntity;
+import com.group2.project2.entities.markEntity;
 import com.group2.project2.entities.subjectsEntity;
 import com.group2.project2.model.StudentList;
 import com.group2.project2.model.mark;
@@ -44,7 +46,7 @@ public class MarkTeacherController implements Initializable{
     private Text lbl_subject;
 
     @FXML
-    private Text lbl_teacher;
+    private Text lbl_class;
 
     @FXML
     private TableView<StudentList> tbv_classList;
@@ -52,16 +54,24 @@ public class MarkTeacherController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         
+        lbl_class.setText("Class: " + classesEntity.findById(TeacherController.getBookingClassId()).getName());
+        lbl_subject.setText("Subject: " + subjectsEntity.findByStaffId(TeacherController.teacherInstance().getId()).get(0).getName());
+        
         if (StudentList.getStdTable() == null) StudentList.setStdTable(StudentList.stdTableInstance(1));
-        for (StudentList std : StudentList.getStdTable())
-            for (mark mk : StudentList.markListInstance(std.getRollno())) {
+        for (StudentList std : StudentList.getStdTable()) {
+//            System.out.println(markEntity.findByRollno(std.getRollno()));
+            for (mark mk : markEntity.findByRollno(std.getRollno())) {
+//                System.out.println(std.getRollno() + "\nsj_id: " + mk.getSubject_id() + " | mark: " + mk.getMark_t2());
                 if (mk.getSubject_id() == TeacherController.subjectListInstance().get(0).getId()) {
-                    if (mk.getMark_t2() == 0) std.setTheory(mk.getMark_t1());
+//                    System.out.println(" | mark: " + mk.getMark_t1());
+                    if (mk.getMark_t2() == -1) std.setTheory(mk.getMark_t1());
                     else std.setTheory(mk.getMark_t2());
-                    if (mk.getMark_p2() == 0) std.setPractice(mk.getMark_p1());
+                    if (mk.getMark_p2() == -1) std.setPractice(mk.getMark_p1());
                     else std.setPractice(mk.getMark_p2());
+                    break;
                 }
             }
+        }
         
         ObservableList<StudentList> data = FXCollections.observableArrayList(StudentList.stdTableInstance(1));
         col_no.setCellValueFactory(new PropertyValueFactory<>("no"));
@@ -72,7 +82,7 @@ public class MarkTeacherController implements Initializable{
         col_theory.setOnEditCommit(new EventHandler<TableColumn.CellEditEvent<StudentList, Number>>() {
             @Override
             public void handle(TableColumn.CellEditEvent<StudentList, Number> event) {
-                
+//                markEntity.insert(m);
             }
         });
         col_practice.setCellValueFactory(new PropertyValueFactory<>("practice"));

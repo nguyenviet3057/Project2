@@ -191,6 +191,7 @@ public class StudentAppController implements Initializable{
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        System.out.println(MasterAppController.DATETIME);
         students std = StudentController.stdInstance();
         //Modify Header
         lbl_hello.setText("Hello " + std.getFullname().substring(std.getFullname().lastIndexOf(' ')+1) + "!");
@@ -199,7 +200,7 @@ public class StudentAppController implements Initializable{
             public void run() {
                 while (App.alive) {
                     Platform.runLater(() ->{
-                        dt_current.setText(LocalDate.now().toString() + " | " + LocalTime.now().toString().substring(0,8));
+                        dt_current.setText(MasterAppController.DATETIME.toLocalDate().toString() + " | " + MasterAppController.DATETIME.toLocalTime().toString().substring(0,8));
                     });
                     try {
                         Thread.sleep(1000);

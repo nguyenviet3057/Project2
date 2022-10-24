@@ -105,15 +105,15 @@ public class subjectsEntity extends BaseEntity{
         return subj;
     }
         
-    public static List<subjects> findByName(String s) {
+    public static List<subjects> findBySemesterId(int semester_id) {
         List<subjects> dataList = new ArrayList<>();
         
         open();
         
-        String sql = "select * from subject where name like ?";
+        String sql = "select subject.id, subject.name, subject.session, subject.staff_id from subject right join semester on subject.id = semester.subject_id where semester_no = ?";
         try {
             statement = conn.prepareStatement(sql);
-            statement.setString(1, "%"+s+"%");
+            statement.setInt(1, semester_id);
             
             ResultSet resultSet = statement.executeQuery();
             

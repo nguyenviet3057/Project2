@@ -54,13 +54,13 @@ public class DashboardTeacherController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         
         //Initialize layout
-        String now = LocalDateTime.now().toLocalTime().toString().substring(0, 5);
-        switch (LocalDateTime.now().getDayOfWeek().toString()) {
+        String now = MasterAppController.DATETIME.toLocalTime().toString().substring(0, 5);
+        switch (MasterAppController.DATETIME.getDayOfWeek().toString()) {
             case "MONDAY":
             case "WEDNESDAY":
             case "FRIDAY":
                 if (now.compareTo("00:00") >= 0 && now.compareTo("11:00") <= 0) {
-                    for (ClassList cl : ClassList.classTableInstance()) {
+                    for (ClassList cl : ClassList.classTableInstance(2)) {
                         if (cl.getDay().compareTo("Monday/Wednesday/Friday") == 0 && cl.getTime().compareTo("07:00 - 11:00") == 0) {
                             lbl_booking.setText(cl.getName() + " - " + subjectsEntity.findByStaffId(TeacherController.teacherInstance().getId()).get(0).getName() + " | " + cl.getTime());
                             TeacherController.setBookingClassId(cl.getId());
@@ -69,7 +69,7 @@ public class DashboardTeacherController implements Initializable{
                     }
                 } else {
                     if (now.compareTo("11:00") > 0 && now.compareTo("17:30") <= 0) {
-                        for (ClassList cl : ClassList.classTableInstance()) {
+                        for (ClassList cl : ClassList.classTableInstance(2)) {
                             if (cl.getDay().compareTo("Monday/Wednesday/Friday") == 0 && cl.getTime().compareTo("13:30 - 17:30") == 0) {
                                 lbl_booking.setText(cl.getName() + " - " + subjectsEntity.findByStaffId(TeacherController.teacherInstance().getId()).get(0).getName() + " | " + cl.getTime());
                                 TeacherController.setBookingClassId(cl.getId());
@@ -84,7 +84,7 @@ public class DashboardTeacherController implements Initializable{
                 break;
             default:
                 if (now.compareTo("00:00") >= 0 && now.compareTo("11:00") <= 0) {
-                    for (ClassList cl : ClassList.classTableInstance()) {
+                    for (ClassList cl : ClassList.classTableInstance(2)) {
                         if (cl.getDay().compareTo("Tuesday/Thursday/Saturday") == 0 && cl.getTime().compareTo("07:00 - 11:00") == 0) {
                             lbl_booking.setText(cl.getName() + " - " + subjectsEntity.findByStaffId(TeacherController.teacherInstance().getId()).get(0).getName() + " | " + cl.getTime());
                             TeacherController.setBookingClassId(cl.getId());
@@ -93,7 +93,7 @@ public class DashboardTeacherController implements Initializable{
                     }
                 } else {
                     if (now.compareTo("11:00") > 0 && now.compareTo("17:30") <= 0) {
-                        for (ClassList cl : ClassList.classTableInstance()) {
+                        for (ClassList cl : ClassList.classTableInstance(2)) {
                             if (cl.getDay().compareTo("Tuesday/Thursday/Saturday") == 0 && cl.getTime().compareTo("13:30 - 17:30") == 0) {
                                 TeacherController.setBookingClassId(cl.getId());
                                 lbl_booking.setText(cl.getName() + " - " + subjectsEntity.findByStaffId(TeacherController.teacherInstance().getId()).get(0).getName() + " | " + cl.getTime());
@@ -114,7 +114,7 @@ public class DashboardTeacherController implements Initializable{
 //            lbl_booking.setText(StudentController.subjectInstance().getName() + " | " + StudentController.bookingInstance().getBegin_time().toLocalDateTime().toLocalTime().toString() + " - " + StudentController.bookingInstance().getEnd_time().toLocalDateTime().toLocalTime().toString());
 //        else lbl_booking.setText("No class today");
         
-        ObservableList<ClassList> data = FXCollections.observableArrayList(ClassList.classTableInstance());
+        ObservableList<ClassList> data = FXCollections.observableArrayList(ClassList.classTableInstance(2));
 //        System.out.println(data.toString());
         col_no.setCellValueFactory(new PropertyValueFactory<>("no"));
         col_name.setCellValueFactory(new PropertyValueFactory<>("name"));

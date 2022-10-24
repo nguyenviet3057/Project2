@@ -34,7 +34,7 @@ public class StudentController {
     private static students std = null;
     
     public static students stdInstance(){
-        if (std == null) std = studentsEntity.findByRollno("HS0001");
+        if (std == null) std = studentsEntity.findByRollno(MasterAppController.usr);
         return std;
     }
     
@@ -136,6 +136,5 @@ public class StudentController {
         scd = null;
         bookList = null;
         bk = null;
-        
     }
 }

@@ -47,7 +47,7 @@ public class studentsEntity extends BaseEntity{
     }
     
     public static void update(students std) {
-        System.out.println(std.getRollno());
+//        System.out.println(std);
         open();
         
         try {
@@ -247,6 +247,47 @@ public class studentsEntity extends BaseEntity{
         close();
         
         return dataList;
+    }
+    
+    public static String findByEmail_Password(String email, String password) {
+        students std = null;
+        
+        open();
+        
+        String sql = "select * from students where email = ? and password = ?";
+        try {
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, email);
+            statement.setString(2, password);
+            
+            ResultSet resultSet = statement.executeQuery();
+            
+            while(resultSet.next()) {
+                std = new students(
+                        resultSet.getString("rollno"), 
+                        resultSet.getString("fullname"), 
+                        resultSet.getDate("birth"), 
+                        resultSet.getString("phone"), 
+                        resultSet.getString("address"),
+                        resultSet.getString("email"),
+                        resultSet.getString("password"),
+                        resultSet.getString("pic"),
+                        resultSet.getInt("status_id"),
+                        resultSet.getInt("semester_id"),
+                        resultSet.getInt("class_id"),
+                        resultSet.getString("gender")
+                );
+                return std.getRollno();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(studentsEntity.class.getName()).log(Level.SEVERE, 
+                    null, ex);
+        }
+        
+        
+        close();
+        
+        return null;
     }
 }
     

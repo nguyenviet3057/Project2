@@ -61,7 +61,7 @@ public class subjects {
 
     @Override
     public String toString() {
-        return "subjects{" + "id=" + id + ", name=" + name + ", sessions=" + sessions + ", staff_id=" + staff_id + '}';
+        return this.name;
     }
     
     

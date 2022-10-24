@@ -80,18 +80,18 @@ public class attendanceEntity {
     public static void updateAttendance2(StudentList std, int booking_id) {
         open();
         
+//        System.out.println(std.getAttendance2().get(booking_id) + " | " + booking_id);
         try {
             String sql = "update attendance set attendance2 = ? where booking_id = ? and student_rollno = ?";
             
             statement = conn.prepareStatement(sql);
-            statement.setString(1, std.getAttendance1().get(booking_id-1));
+            statement.setString(1, std.getAttendance2().get(booking_id-1));
             statement.setInt(2, booking_id);
             statement.setString(3, std.getRollno());
 
             statement.execute();
         } catch(SQLException e) {}
         
-//        System.out.println(std.getAttendance1().get(booking_id) + " | " + booking_id);
         close();
     }
     

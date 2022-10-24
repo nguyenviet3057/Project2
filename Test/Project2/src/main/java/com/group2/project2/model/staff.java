@@ -4,6 +4,7 @@
  */
 package com.group2.project2.model;
 
+import java.sql.Date;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -13,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class staff {
     private int id;
     private String fullname;
-    private String  birthday;
+    private Date  birthday;
     private String phonenumber;
     private String address;
     private String email;
@@ -30,7 +31,7 @@ public class staff {
         this.fullname = fullname;
     }
 
-    public staff(int id, String fullname, String birthday, String phonenumber, 
+    public staff(int id, String fullname, Date birthday, String phonenumber, 
             String address, String email, String password, String picture, 
             float salary, int permission_id) {
         this.id = id;
@@ -62,11 +63,11 @@ public class staff {
         this.fullname = fullname;
     }
 
-    public String getBirthday() {
+    public Date getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String birthday) {
+    public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
 
@@ -128,11 +129,7 @@ public class staff {
 
     @Override
     public String toString() {
-        return "staff{" + "id=" + id + ", fullname=" + fullname + ", birthday="
-                + birthday + ", phonenumber=" + phonenumber + ", address=" + 
-                address + ", email=" + email + ", password=" + password + ", "
-                + "picture=" + picture + ", salary=" + salary + ", "
-                + "permission_id=" + permission_id + '}';
+        return this.fullname;
     }
     
     

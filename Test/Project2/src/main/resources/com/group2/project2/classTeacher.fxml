@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane prefHeight="620.0" prefWidth="731.0" style="-fx-background-color: white;" stylesheets="@mark.css" xmlns="http://javafx.com/javafx/8.0.331" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group2.project2.ClassTeacherController">
+<Pane prefHeight="620.0" prefWidth="731.0" style="-fx-background-color: white;" stylesheets="@mark.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group2.project2.ClassTeacherController">
    <children>
-      <Text fx:id="lbl_teacher" fill="#006480" layoutX="46.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class: &lt;teacher_name&gt;" wrappingWidth="402.0">
+      <Text fx:id="lbl_class" fill="#006480" layoutX="46.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class: &lt;class_name&gt;" wrappingWidth="402.0">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -30,10 +31,12 @@
             <TableColumn fx:id="col_rollno" editable="false" maxWidth="199.0" minWidth="75.0" prefWidth="91.0" resizable="false" text="Roll Number" />
         </columns>
       </TableView>
-      <Text fx:id="lbl_currentSession" fill="GREY" layoutX="297.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Sesstion: 0" textAlignment="RIGHT" wrappingWidth="373.265625">
+      <Text fx:id="lbl_currentSession" fill="GREY" layoutX="297.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Session: 0" textAlignment="RIGHT" wrappingWidth="373.265625">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Text>
+      <Label fx:id="lbl_error" layoutX="11.0" layoutY="553.0" text="Invalid value. Return to previous value!" textFill="RED" visible="false" />
+      <Label layoutX="11.0" layoutY="553.0" text="Successfully auto roll up students for current session !" textFill="BLUE" />
    </children>
 </Pane>

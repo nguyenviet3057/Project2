@@ -63,6 +63,11 @@ public class semester {
     public void setStart_year(Date start_year) {
         this.start_year = start_year;
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(semester_id);
+    }
     
     
 }

@@ -2,13 +2,17 @@ package com.group2.project2;
 
 
 
+import com.group2.project2.model.staff;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Iterator;
 import java.util.ResourceBundle;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,10 +21,12 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
 public class TeacherAppController implements Initializable{
@@ -71,13 +77,13 @@ public class TeacherAppController implements Initializable{
     private Label lbl_hello;
 
     @FXML
-    private Label lbl_std_dob;
+    private Label lbl_sta_dob;
 
     @FXML
-    private Label lbl_std_email;
+    private Label lbl_sta_email;
 
     @FXML
-    private Label lbl_std_phone;
+    private Label lbl_sta_phone;
 
     @FXML
     private Label lbl_version;
@@ -126,11 +132,8 @@ public class TeacherAppController implements Initializable{
                 btn_form.setStyle("-fx-alignment: center-left; -fx-background-color: #f0f0f0; -fx-cursor: hand");
                 break;
             case 6:
-                layout_fxml = "settingTeacher";
+                layout_fxml = "setting";
                 btn_setting.setStyle("-fx-alignment: center-left; -fx-background-color: #f0f0f0; -fx-cursor: hand");
-                break;
-            case 7:
-                layout_fxml = "editStudentTeacher";
                 break;
             default:
                 layout_fxml = "dashboardTeacher";
@@ -173,13 +176,47 @@ public class TeacherAppController implements Initializable{
     void switchToSetting() throws IOException {
         switchToLayout(6);
     }
-    @FXML
-    void switchToEditStudent() throws IOException {
-        switchToLayout(7);
-    }
 
+    public void switchToMasterApp() throws IOException {
+        TeacherController.resetData();
+        App.setRoot("MasterApp");
+    }
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        staff sta = TeacherController.teacherInstance();
+        lbl_hello.setText("Hello " + sta.getFullname().substring(sta.getFullname().lastIndexOf(' ')+1) + "!");
+        
+        Thread dynamicClock = new Thread() {
+            public void run() {
+                while (App.alive) {
+                    Platform.runLater(() ->{
+                        dt_current.setText(MasterAppController.DATETIME.toLocalDate().toString() + " | " + MasterAppController.DATETIME.toLocalTime().toString().substring(0,8));
+                    });
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(StudentAppController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        };
+        dynamicClock.start();
+        
+        lbl_fullname.setText(sta.getFullname());
+        lbl_sta_dob.setText(sta.getBirthday().toString());
+        lbl_sta_phone.setText(sta.getPhonenumber());
+        lbl_sta_email.setText(sta.getEmail());
+        
+        //Add cir_avatar's background
+        String url = "file:images/avatar.jpg";
+        Image img = new Image(url);
+//        System.out.println("Dashboard: "+ img.getException());
+        ImagePattern imagePattern = new ImagePattern(img);
+        cir_avatar.setFill(imagePattern);
+        
+        //Set current time for datepicker
+        dpk_date.setPromptText(MasterAppController.DATETIME.toLocalDate().toString());
         try {
             //Default Layout
             switchToDashboard();

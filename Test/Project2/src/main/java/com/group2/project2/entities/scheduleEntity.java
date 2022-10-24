@@ -140,6 +140,38 @@ public class scheduleEntity {
         
         return scd;
     }
+    
+    public static List<schedule> findByClassId(int class_id) {
+//        System.out.println(class_id);
+        List<schedule> scdList = new ArrayList<>();
+        
+        open();
+        
+        String sql = "select * from schedule where class_id = ?";
+        try {
+            statement = conn.prepareStatement(sql);
+            statement.setInt(1, class_id);
+            
+            ResultSet resultSet = statement.executeQuery();
+            
+            while(resultSet.next()) {
+                schedule scd = new schedule(
+                        resultSet.getInt("id"),
+                        resultSet.getInt("subject_id"), 
+                        resultSet.getInt("class_id"), 
+                        resultSet.getDate("start_date"),
+                        resultSet.getDate("end_date")
+                    );
+                scdList.add(scd);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(staffEntity.class.getName()).log(Level.SEVERE,null, ex);
+        }
+        
+        close();
+        
+        return scdList;
+    }
         
 //    public static List<staff> findByName(String s) {
 //        List<staff> dataList = new ArrayList<>();

@@ -8,7 +8,7 @@
 
 <Pane prefHeight="620.0" prefWidth="731.0" style="-fx-background-color: white;" stylesheets="@mark.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group2.project2.MarkTeacherController">
    <children>
-      <Text fx:id="lbl_teacher" fill="#006480" layoutX="46.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class: &lt;teacher_name&gt;" wrappingWidth="402.0">
+      <Text fx:id="lbl_class" fill="#006480" layoutX="46.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class: &lt;class_name&gt;" wrappingWidth="402.0">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -32,10 +32,5 @@
             <TableColumn fx:id="col_practice" prefWidth="75.0" text="Practice" />
         </columns>
       </TableView>
-      <Text fx:id="lbl_currentSession" fill="GREY" layoutX="297.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Sesstion: 0" textAlignment="RIGHT" wrappingWidth="373.265625">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Text>
    </children>
 </Pane>

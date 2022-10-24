@@ -51,9 +51,9 @@ public class DashboardController implements Initializable{
         for (subjects sj : StudentController.subjectListInstance()) {
             for (mark mk : StudentController.markListInstance()) {
                 if (mk.getSubject_id() == sj.getId()) {
-                    if (mk.getMark_t2() == 0) mark_T.getData().add(new XYChart.Data<>(subjectsEntity.findByID(mk.getSubject_id()).getName(), mk.getMark_t1()));
+                    if (mk.getMark_t2() == -1) mark_T.getData().add(new XYChart.Data<>(subjectsEntity.findByID(mk.getSubject_id()).getName(), mk.getMark_t1()));
                     else mark_T.getData().add(new XYChart.Data<>(subjectsEntity.findByID(mk.getSubject_id()).getName(), mk.getMark_t2()));
-                    if (mk.getMark_p2() == 0) mark_P.getData().add(new XYChart.Data<>(subjectsEntity.findByID(mk.getSubject_id()).getName(), mk.getMark_p1()));
+                    if (mk.getMark_p2() == -1) mark_P.getData().add(new XYChart.Data<>(subjectsEntity.findByID(mk.getSubject_id()).getName(), mk.getMark_p1()));
                     else mark_P.getData().add(new XYChart.Data<>(subjectsEntity.findByID(mk.getSubject_id()).getName(), mk.getMark_p2()));
                 }
             }

@@ -69,7 +69,7 @@ public class ClassController implements Initializable{
 //            stdTable.add(new StudentList(student.getRollno(), student.getFullname(), student.getBirthday(), student.getPhonenumber(), student.getAddress(), student.getEmail(), student.getPassword(), student.getPicture(), student.getStatus_id(), student.getSemester_id(), student.getClass_id()));
 //        }
 
-        ObservableList<StudentList> data = FXCollections.observableArrayList(StudentList.stdTableInstance(0));
+        ObservableList<StudentList> data = FXCollections.observableArrayList(StudentList.stdTableInstance(StudentController.classInstance().getId()));
 //        System.out.println(data.toString());
         col_no.setCellValueFactory(new PropertyValueFactory<>("no"));
         col_name.setCellValueFactory(new PropertyValueFactory<>("fullname"));

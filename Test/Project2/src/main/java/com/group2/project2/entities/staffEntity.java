@@ -32,7 +32,7 @@ public class staffEntity extends BaseEntity{
             statement = conn.prepareStatement(sql);
             statement.setInt(1, sta.getId());
             statement.setString(2, sta.getFullname());
-            statement.setString(3, sta.getBirthday());
+            statement.setDate(3, sta.getBirthday());
             statement.setString(4, sta.getPhonenumber());
             statement.setString(5, sta.getAddress());
             statement.setString(6, sta.getEmail());
@@ -59,7 +59,7 @@ public class staffEntity extends BaseEntity{
             statement = conn.prepareStatement(sql);
             statement.setInt(1, sta.getId());
             statement.setString(2, sta.getFullname());
-            statement.setString(3, sta.getBirthday());
+            statement.setDate(3, sta.getBirthday());
             statement.setString(4, sta.getPhonenumber());
             statement.setString(5, sta.getAddress());
             statement.setString(6, sta.getEmail());
@@ -91,7 +91,7 @@ public class staffEntity extends BaseEntity{
         close();
     }
 
-        public static staff findById(int id) {
+    public static staff findById(int id) {
         staff sta = null;
         
         open();
@@ -107,7 +107,7 @@ public class staffEntity extends BaseEntity{
                 sta = new staff(
                         resultSet.getInt("id"), 
                         resultSet.getString("fullname"), 
-                        resultSet.getString("birth"), 
+                        resultSet.getDate("birth"), 
                         resultSet.getString("phone"), 
                         resultSet.getString("address"),
                         resultSet.getString("email"),
@@ -144,7 +144,7 @@ public class staffEntity extends BaseEntity{
                 staff sta = new staff(
                         resultSet.getInt("id"), 
                         resultSet.getString("fullname"), 
-                        resultSet.getString("birth"), 
+                        resultSet.getDate("birth"), 
                         resultSet.getString("phone"), 
                         resultSet.getString("address"),
                         resultSet.getString("email"),
@@ -180,7 +180,7 @@ public class staffEntity extends BaseEntity{
                 staff sta = new staff(
                         resultSet.getInt("id"), 
                         resultSet.getString("fullname"), 
-                        resultSet.getString("birth"), 
+                        resultSet.getDate("birth"), 
                         resultSet.getString("phone"), 
                         resultSet.getString("address"),
                         resultSet.getString("email"),
@@ -199,5 +199,43 @@ public class staffEntity extends BaseEntity{
         close();
         
         return dataList;
+    }
+    
+    public static staff findByEmail_Password(String email, String password) {
+        staff sta = null;
+        
+        open();
+        
+        String sql = "select * from staff where email = ? and password = ?";
+        try {
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, email);
+            statement.setString(2, password);
+            
+            ResultSet resultSet = statement.executeQuery();
+            
+            while(resultSet.next()) {
+                sta = new staff(
+                        resultSet.getInt("id"), 
+                        resultSet.getString("fullname"), 
+                        resultSet.getDate("birth"), 
+                        resultSet.getString("phone"), 
+                        resultSet.getString("address"),
+                        resultSet.getString("email"),
+                        resultSet.getString("password"),
+                        resultSet.getString("pic"),
+                        resultSet.getFloat("salary"),
+                        resultSet.getInt("permission_id"));
+                return sta;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(staffEntity.class.getName()).log(Level.SEVERE, 
+                    null, ex);
+        }
+        
+        
+        close();
+        
+        return null;
     }
 }

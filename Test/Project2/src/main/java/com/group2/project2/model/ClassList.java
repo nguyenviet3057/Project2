@@ -9,6 +9,7 @@ import com.group2.project2.TeacherController;
 import com.group2.project2.entities.attendanceEntity;
 import com.group2.project2.entities.classesEntity;
 import com.group2.project2.entities.scheduleEntity;
+import com.group2.project2.entities.staffEntity;
 import com.group2.project2.entities.subjectsEntity;
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -25,8 +26,8 @@ public class ClassList extends classes{
     String day;
     String time;
 
-    private ClassList(int id, String name, int staff_id, String day, String time) {
-        super(id, name, staff_id);
+    public ClassList(int id, String name, int semester_id, int staff_id, String day, String time) {
+        super(id, name, semester_id, staff_id);
         this.no = ++count;
         this.day = day;
         this.time = time;
@@ -34,24 +35,50 @@ public class ClassList extends classes{
 
     private static List<ClassList> classTable = null;
     
-    public static List<ClassList> classTableInstance() {
+    public static List<ClassList> classTableInstance(int role) {
         if (classTable == null) {
             classTable = new ArrayList<>();
-            for (classes cl : classesEntity.findByStaffId(TeacherController.teacherInstance().getId())) {            
-                switch (cl.getId()%4) {
-                    case 1:
-                        classTable.add(new ClassList(cl.getId(), cl.getName(), TeacherController.teacherInstance().getId(), "Monday/Wednesday/Friday", "07:00 - 11:00"));
-                        break;
-                    case 2:
-                        classTable.add(new ClassList(cl.getId(), cl.getName(), TeacherController.teacherInstance().getId(), "Monday/Wednesday/Friday", "13:30 - 17:30"));
-                        break;
-                    case 3:
-                        classTable.add(new ClassList(cl.getId(), cl.getName(), TeacherController.teacherInstance().getId(), "Tuesday/Thursday/Saturday", "07:00 - 11:00"));
-                        break;
-                    case 0:
-                        classTable.add(new ClassList(cl.getId(), cl.getName(), TeacherController.teacherInstance().getId(), "Tuesday/Thursday/Saturday", "13:30 - 17:30"));
-                        break;
-                }
+            List<classes> classList = null;
+            switch (role) {
+                case 2:
+                    classList = classesEntity.findByStaffId(TeacherController.teacherInstance().getId());
+                    for (classes cl : classList) {            
+                        switch (cl.getId()%4) {
+                            case 1:
+                                classTable.add(new ClassList(cl.getId(), cl.getName(), cl.getSemester_id(), TeacherController.teacherInstance().getId(), "Monday/Wednesday/Friday", "07:00 - 11:00"));
+                                break;
+                            case 2:
+                                classTable.add(new ClassList(cl.getId(), cl.getName(), cl.getSemester_id(), TeacherController.teacherInstance().getId(), "Monday/Wednesday/Friday", "13:30 - 17:30"));
+                                break;
+                            case 3:
+                                classTable.add(new ClassList(cl.getId(), cl.getName(), cl.getSemester_id(), TeacherController.teacherInstance().getId(), "Tuesday/Thursday/Saturday", "07:00 - 11:00"));
+                                break;
+                            case 0:
+                                classTable.add(new ClassList(cl.getId(), cl.getName(), cl.getSemester_id(), TeacherController.teacherInstance().getId(), "Tuesday/Thursday/Saturday", "13:30 - 17:30"));
+                                break;
+                        }
+                    }
+                    break;
+                case 3:
+                    classList = classesEntity.list();
+                    for (classes cl : classList) {
+                        switch (cl.getId()%4) {
+                            case 1:
+                                classTable.add(new ClassList(cl.getId(), cl.getName(), cl.getSemester_id(), cl.getStaff_id(), "Monday/Wednesday/Friday", "07:00 - 11:00"));
+                                break;
+                            case 2:
+                                classTable.add(new ClassList(cl.getId(), cl.getName(), cl.getSemester_id(), cl.getStaff_id(), "Monday/Wednesday/Friday", "13:30 - 17:30"));
+                                break;
+                            case 3:
+                                classTable.add(new ClassList(cl.getId(), cl.getName(), cl.getSemester_id(), cl.getStaff_id(), "Tuesday/Thursday/Saturday", "07:00 - 11:00"));
+                                break;
+                            case 0:
+                                classTable.add(new ClassList(cl.getId(), cl.getName(), cl.getSemester_id(), cl.getStaff_id(), "Tuesday/Thursday/Saturday", "13:30 - 17:30"));
+                                break;
+                        }
+                    }
+//                    System.out.println(classList);
+                    break;
             }
         }
         return classTable;
@@ -96,6 +123,9 @@ public class ClassList extends classes{
     public static void setClassTable(List<ClassList> classTable) {
         ClassList.classTable = classTable;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return this.getName();
+    }
 }

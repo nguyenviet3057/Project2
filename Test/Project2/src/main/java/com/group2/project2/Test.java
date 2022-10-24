@@ -4,6 +4,8 @@
  */
 package com.group2.project2;
 
+import com.group2.project2.entities.bookingEntity;
+import com.group2.project2.entities.scheduleEntity;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -19,6 +21,8 @@ import java.util.concurrent.TimeUnit;
  */
 public class Test {
     public static void main(String[] args) {
+        System.out.println(MasterAppController.DATETIME.isBefore(bookingEntity.findByScheduleId(1).get(1).getEnd_time().toLocalDateTime()));
+/*
         LocalDateTime timeUnit = LocalDateTime.parse("2002-12-09T12:00:00");
         LocalDate ld = LocalDate.now();
         System.out.println(ld.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
@@ -42,5 +46,6 @@ public class Test {
 //        String formattedDate = myDateObj.format(myFormatObj);
 //        System.out.println("After formatting: " + formattedDate);
         System.out.println("LOCAL Time: " + LocalDateTime.now().toLocalTime().toString().substring(0, 5));
+*/
     }
 }

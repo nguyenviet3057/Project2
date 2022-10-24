@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane prefHeight="620.0" prefWidth="731.0" style="-fx-background-color: white;" stylesheets="@mark.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.group2.project2.StudentStaffController">
+   <children>
+      <Text fx:id="lbl_teacher" fill="#006480" layoutX="365.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teacher:" wrappingWidth="63.9921875">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Text>
+      <Text fx:id="lbl_subject" fill="#006480" layoutX="42.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject:" textAlignment="RIGHT" wrappingWidth="63.9921875">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Text>
+      <Text fill="GREY" layoutX="46.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Class list">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Text>
+      <TableView fx:id="tbv_classList" layoutX="45.0" layoutY="119.0" prefHeight="408.0" prefWidth="626.0">
+        <columns>
+          <TableColumn fx:id="col_no" editable="false" maxWidth="38.0" minWidth="30.0" prefWidth="38.0" resizable="false" text="No" />
+          <TableColumn fx:id="col_name" editable="false" maxWidth="283.0" minWidth="184.0" prefWidth="197.0" resizable="false" text="Student" />
+            <TableColumn fx:id="col_rollno" editable="false" maxWidth="199.0" minWidth="75.0" prefWidth="91.0" resizable="false" text="Roll Number" />
+            <TableColumn fx:id="col_phone" editable="false" maxWidth="234.0" minWidth="84.0" prefWidth="105.0" resizable="false" text="Phone" />
+            <TableColumn fx:id="col_email" prefWidth="194.0" text="Email" />
+        </columns>
+      </TableView>
+      <Text fx:id="lbl_currentSession" fill="GREY" layoutX="297.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Sesstion: 0" textAlignment="RIGHT" visible="false" wrappingWidth="373.265625">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="cb_class" layoutX="97.0" layoutY="20.0" onAction="#loadData" prefWidth="150.0" promptText="--- Select Class ---" />
+      <Label layoutX="46.0" layoutY="19.0" text="Class:" textFill="RED">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn_edit" disable="true" layoutX="271.0" layoutY="581.0" mnemonicParsing="false" onAction="#edit" text="Edit" />
+      <Button fx:id="btn_save" disable="true" layoutX="346.0" layoutY="581.0" mnemonicParsing="false" onAction="#save" text="Save" />
+      <ComboBox fx:id="cb_sem" disable="true" layoutX="520.0" layoutY="20.0" onAction="#loadSubject" prefWidth="150.0" promptText="--- Semester ---" />
+      <Label layoutX="431.0" layoutY="19.0" text="Semester:" textFill="RED">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cb_teacher" disable="true" layoutX="431.0" layoutY="69.0" prefHeight="25.0" prefWidth="240.0" />
+      <ComboBox fx:id="cb_subject" disable="true" layoutX="108.0" layoutY="69.0" onAction="#loadTeacher" prefHeight="25.0" prefWidth="246.0" promptText="--- Select Subject ---" />
+      <Button fx:id="btn_back" disable="true" layoutX="424.0" layoutY="581.0" mnemonicParsing="false" onAction="#back" text="Back" />
+      <Label fx:id="lbl_warning" layoutX="45.0" layoutY="538.0" text="Edit" textFill="#ae9100" visible="false" />
+   </children>
+</Pane>
